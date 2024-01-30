@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Marvel';
+    src: url('./assets/fonts/Marvel/Marvel-Regular.ttf') format('truetype'); /* adjust the path and format as needed */
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+@font-face {
+    font-family: 'MarvelBold';
+    src: url('./assets/fonts/Marvel/Marvel-Bold.ttf') format('truetype'); /* adjust the path and format as needed */
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  

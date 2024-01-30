@@ -1,0 +1,16 @@
+.class-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #0f0f0f;
+    color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 0, 0); /* Add border style and color here */
+    margin: 10px; /* Optional: Add margin for spacing */
+}
+
+.bpgc-classes{
+    text-align: center;
+}
+
