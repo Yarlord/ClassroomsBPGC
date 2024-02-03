@@ -1,21 +1,25 @@
 .main{
-  justify-content:flex-start;
+  justify-content:center;
   display: flex;
   align-items:center;
   text-align: center;
   flex-flow: column wrap;
-  background-color: #1e1e1e;
-  min-height: fit-content;
+  background-color: hsl(0, 0%, 12%);
+  min-height: 100vh;
 }
 
 .bpgc-classes{
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   text-align: center;
   /* background-color: #1b1b1b; */
+  background-color: hsl(0, 0%, 10%);
   color: aliceblue;
   font-family: 'Marvel';
-  font-size: 80px;
+  font-size: 50px;
+  padding: 10px;
 }
 
 #time{
@@ -23,4 +27,10 @@
   color: aliceblue;
   font-family: 'Marvel';
   
+}
+
+.searchbar{
+  position: fixed;
+  bottom:0;
+  right:auto;
 }

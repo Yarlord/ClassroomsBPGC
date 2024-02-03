@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
 
 function Classes(){
+
     const [jsonData, setJsonData] = useState(null);
     useEffect(()=>{
         const fetchData = async()=> {
@@ -25,28 +26,36 @@ function Classes(){
     jsonData?finalRes=jsonData:finalRes=[]; 
 
     const day_mapping = [
-        ['1', 'M'],
-        ['2', 'T'],
-        ['3', 'W'],
-        ['4', 'B'],
-        ['5', 'F'],
-        ['6', 'S']
+        ['1', 'M', 'Monday'],
+        ['2', 'T', 'Tuesday'],
+        ['3', 'W', 'Wednesday'],
+        ['4', 'B', 'Thursday'],
+        ['5', 'F', 'Friday'],
+        ['6', 'S', 'Saturday']
       ];
 
-    function findEmptyClasses(inputArray, searchString){
-        for (const item of inputArray){
-            if (item[0]===searchString){
-                return item[1] || [];
+    function findDaysGivenClass(inputArray, searchString){
+        let res = [];
+
+        for (const item of inputArray) {
+            const index = item[1].indexOf(searchString);
+            if (index !== -1) {
+                res.push(item[0]);
             }
         }
-        return ["No classes found!"];
+
+        if (res.length > 0) {
+            return res;
+        } else {
+            return ["No result found!"];
+        }
     }
 
-    function convertToDTP(day, time, day_mapping){
+    function convertFromDTP(day_time, day_mapping){
         let res = ""
-        day = String(day);
+
         for (const item of day_mapping){
-            if (item[0]===(day)){
+            if (item[0]===day_time[0]){
                 res+=(item[1]);
             }
         }
@@ -55,8 +64,10 @@ function Classes(){
         res=res+" "+(time);
         return res;
     }
-    let str = convertToDTP(day, current_time, day_mapping);
-    let arr = findEmptyClasses(finalRes, str);
+
+
+    // let str = convertToDTP(day, current_time, day_mapping);
+    let arr = findDaysGivenClass(finalRes, "DLT5");
 
     const [time, setTime] = useState(new Date());
     useEffect(() => {
@@ -69,8 +80,6 @@ function Classes(){
 
     return(
         <div className="class-container">
-      <h1 className="bpgc-classes">CLASSROOMS</h1>    
-
             <div className="classlist">
                 
                 <h3 className="empty-header">Currently Available: </h3>

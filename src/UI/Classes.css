@@ -2,15 +2,44 @@
     display: flex;
     align-items: center;
     text-align: center;
+    /* flex-flow: row wrap; */
+    justify-content: center;
     background-color: #0f0f0f;
     color: aliceblue;
     padding: 20px;
     border-radius: 10px;
     border: 2px solid rgb(255, 0, 0); /* Add border style and color here */
     margin: 10px; /* Optional: Add margin for spacing */
+    min-width: 50%;
+    font-size: 20px;
 }
-
+.empty-header{
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+}
 .bpgc-classes{
     text-align: center;
 }
 
+.avail-classes{
+    display: flex;
+    justify-content: center;
+    font-weight: 300;
+    font-size: 30px;
+    padding: 1px;
+}
+
+.bpgc-classes{
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* background-color: #1b1b1b; */
+    background-color: hsl(0, 0%, 10%);
+    color: aliceblue;
+    font-family: 'Marvel';
+    font-size: 50px;
+    padding: 10px;
+  }
