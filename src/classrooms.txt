@@ -1,8 +1,0 @@
-first load app on phone with a 0.5 second timer with only CLASSROOMS written on it.
-
-classrooms currently empty on the main screen
-
-below it, select day and time (USING CALENDAR) to see the empty classrooms 
-
-below it, see the day and time for a specific classroom 
-
