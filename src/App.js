@@ -40,7 +40,7 @@ function App() {
       <div className='searchbar'>
         <div className="drawer">
               <div className="drawer-details">
-                  <div className='container'>
+                  <div className='icon-container'>
                       <div className='home' onClick={()=>handleOnClick('home')}>
                           <FaHouseUser/>
                           <p className='icon-text'>Home</p>

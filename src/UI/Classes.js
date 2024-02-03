@@ -69,7 +69,7 @@ function Classes(){
 
     return(
         <div className="class-container">
-      <h1 className="bpgc-classes">CLASSROOMS</h1>    
+            <h1 className="bpgc-classes">CLASSROOMS</h1>    
 
             <div className="classlist">
                 

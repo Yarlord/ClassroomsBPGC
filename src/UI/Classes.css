@@ -10,8 +10,9 @@
     border-radius: 10px;
     border: 2px solid rgb(255, 0, 0); /* Add border style and color here */
     margin: 10px; /* Optional: Add margin for spacing */
-    min-width: 50%;
+    min-width: 30%;
     font-size: 20px;
+    margin-bottom: 100px;
 }
 .empty-header{
     display: flex;
@@ -20,6 +21,9 @@
 }
 .bpgc-classes{
     text-align: center;
+    min-width: 100vh;
+    justify-content: center;
+    margin-top: 0px;
 }
 
 .avail-classes{

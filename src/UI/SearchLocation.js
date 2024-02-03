@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
 
-function Classes(){
+function SearchLocation(){
 
     const [jsonData, setJsonData] = useState(null);
     useEffect(()=>{
@@ -82,7 +82,7 @@ function Classes(){
         <div className="class-container">
             <div className="classlist">
                 
-                <h3 className="empty-header">Currently Available: </h3>
+                <h3 className="empty-header"> Available: </h3>
                 <div className='container'>
                     {jsonData ? (
                         <div>
@@ -106,4 +106,4 @@ function Classes(){
     )    
 }
 
-export default Classes; 
+export default SearchLocation; 
