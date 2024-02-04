@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
+import styles from './SearchLocation.css';
+import { FaSearch } from "react-icons/fa";
+
 
 function SearchLocation(){
 
@@ -26,12 +29,12 @@ function SearchLocation(){
     jsonData?finalRes=jsonData:finalRes=[]; 
 
     const day_mapping = [
-        ['1', 'M', 'Monday'],
-        ['2', 'T', 'Tuesday'],
-        ['3', 'W', 'Wednesday'],
-        ['4', 'B', 'Thursday'],
-        ['5', 'F', 'Friday'],
-        ['6', 'S', 'Saturday']
+        ['1', 'M', 'Mon'],
+        ['2', 'T', 'Tue'],
+        ['3', 'W', 'Wed'],
+        ['4', 'B', 'Thu'],
+        ['5', 'F', 'Fri'],
+        ['6', 'S', 'Sat']
       ];
 
     function findDaysGivenClass(inputArray, searchString){
@@ -51,23 +54,40 @@ function SearchLocation(){
         }
     }
 
-    function convertFromDTP(day_time, day_mapping){
-        let res = ""
+    // function convertFromDTP(arr, day_mapping){
+    //     let res = [];
 
-        for (const item of day_mapping){
-            if (item[0]===day_time[0]){
-                res+=(item[1]);
-            }
-        }
-        (time>7)?(time = time-7):(time = 100);
-        time = time.toString();
-        res=res+" "+(time);
-        return res;
+    //     for (let item of arr){
+    //         let str="";
+    //         let time = item.slice(2);
+    //         let day = item.charAt(0);
+    //         for (const mapper of day_mapping){
+    //             if (day===mapper[1]){
+    //                 str = day.replace(day, mapper[2]);
+    //                 // console.log(str);
+    //             }
+    //         }      
+    //         time = Number(time);
+    //         time += 7;
+    //         let time_2 = time+1;
+    //         let time_str = time.toString()+":00-"+time_2.toString()+":00";
+    //         str= str + " "+ time_str;
+    //         // res(str);
+    //         // console.log(str);
+    //         res.push(str);
+    //     }
+    //     return res;
+    // }
+
+    const [searchTerm, setSearchTerm] = useState('');
+    const handleInput = (event)=>{
+        setSearchTerm(event.target.value);
     }
 
+    let arr = findDaysGivenClass(finalRes, searchTerm);
+    // arr = convertFromDTP(arr, day_mapping);
+    // console.log(arr);
 
-    // let str = convertToDTP(day, current_time, day_mapping);
-    let arr = findDaysGivenClass(finalRes, "DLT5");
 
     const [time, setTime] = useState(new Date());
     useEffect(() => {
@@ -78,30 +98,76 @@ function SearchLocation(){
     }, []);
     
 
+    const [sortByDay, setSortByDay] = useState(null);
+
+    const handleHeaderClick = (day) => {
+        if (sortByDay === day) {
+        setSortByDay(null);
+        } else {
+        setSortByDay(day);
+        }
+    };
+
+    const isSortedByDay = (day) => sortByDay === day;
+
+
     return(
-        <div className="class-container">
-            <div className="classlist">
-                
-                <h3 className="empty-header"> Available: </h3>
-                <div className='container'>
-                    {jsonData ? (
-                        <div>
-                        {arr.map((item,index) => (
-                            <div key={index}>                            
-                            <div className='avail-classes'>
-                                {
-                                <p>{item}</p>
-                                }
-                            </div>
-                            </div>
-                        ))}
-                        </div>
-                    ) : (
-                        <p>Loading...</p>
-                    )}
-                </div>
-            </div>
+        <div>
+            <input 
+            type = "text"
+            placeholder="Search classrooms"
+            value={searchTerm}
+            onChange={handleInput}
+            className='search-bar'>
+            </input>
+            <div className="class-container2">
+                {/* <h3 className="empty-header"> Available: </h3> */}
+
+                <div className="classlist">
+                    <table>
+                        <thead>
+                        <tr>
+                            {day_mapping.map(([numeric, shortName, fullName]) => (
+                            <th
+                                key={numeric}
+                                onClick={() => handleHeaderClick(fullName)}
+                                className={isSortedByDay(fullName) ? 'active' : 'passive'}
+                            >
+                                {fullName}
+                            </th>
+                            ))}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {jsonData ? (
+                            // Render table rows based on sorted day
+                            day_mapping.map(([numeric, shortName, fullName]) => (
+                            <tr key={numeric}>
+                                {isSortedByDay(fullName) ? (
+                                // Display times for the sorted day
+                                <td colSpan={day_mapping.length}>
+                                    {arr.map((item, index) =>
+                                    item.includes(shortName) ? (
+                                        <p key={index}>{item.split(' ')[1]}</p>
+                                    ) : null
+                                    )}
+                                </td>
+                                ) : (
+                                // Display empty cells for other days
+                                day_mapping.map((day) => <td key={day[0]}></td>)
+                                )}
+                            </tr>
+                            ))
+                        ) : (
+                            <tr>
+                            <td colSpan={day_mapping.length}>Loading...</td>
+                            </tr>
+                        )}
+                        </tbody>
+                    </table>
+                    </div>
               
+            </div>
         </div>
     )    
 }

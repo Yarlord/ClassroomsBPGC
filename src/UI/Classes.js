@@ -68,31 +68,31 @@ function Classes(){
     
 
     return(
-        <div className="class-container">
-            <h1 className="bpgc-classes">CLASSROOMS</h1>    
-
-            <div className="classlist">
-                
-                <h3 className="empty-header">Currently Available: </h3>
-                <div className='container'>
-                    {jsonData ? (
-                        <div>
-                        {arr.map((item,index) => (
-                            <div key={index}>                            
-                            <div className='avail-classes'>
-                                {
-                                <p>{item}</p>
-                                }
+        <div className='main-container'>
+            <div className="class-container">
+                <div className="classlist">
+                    
+                    <h3 className="empty-header">Currently Available: </h3>
+                    <div className='container'>
+                        {jsonData ? (
+                            <div>
+                            {arr.map((item,index) => (
+                                <div key={index}>                            
+                                <div className='avail-classes'>
+                                    {
+                                    <p>{item}</p>
+                                    }
+                                </div>
+                                </div>
+                            ))}
                             </div>
-                            </div>
-                        ))}
-                        </div>
-                    ) : (
-                        <p>Loading...</p>
-                    )}
+                        ) : (
+                            <p>Loading...</p>
+                        )}
+                    </div>
                 </div>
+                
             </div>
-              
         </div>
     )    
 }

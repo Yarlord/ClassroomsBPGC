@@ -2,6 +2,7 @@ import styles from './App.css';
 import Class from "./UI/Classes";
 import Styles from './UI/Drawer.css';
 import SearchLocation from "./UI/SearchLocation";
+import SearchDate from './UI/SearchDate';
 import { FaSearchLocation } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
 import { FaHouseUser } from "react-icons/fa";
@@ -27,8 +28,8 @@ function App() {
     switch (selectedComponent) {
       case 'searchLocation':
         return <SearchLocation />;
-      // case 'searchDate':
-      //   return <SearchDate />;
+      case 'searchDate':
+        return <SearchDate />;
       default:
         return <Class />;
     }
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <div className="main">
+      <h1 className="bpgc-classes">CLASSROOMS</h1>    
       {renderComponent()}
       <div className='searchbar'>
         <div className="drawer">
