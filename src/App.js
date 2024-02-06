@@ -12,6 +12,7 @@ import { render } from '@testing-library/react';
 
 function App() {
   const [time, setTime] = useState(new Date());
+  // console.log(time);
   useEffect(() => {
         const interval = setInterval(() => {
           setTime(new Date());

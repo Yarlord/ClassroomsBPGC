@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
+import SearchTime from './SearchTime';
 
 function Classes(){
     const [jsonData, setJsonData] = useState(null);
@@ -67,12 +68,26 @@ function Classes(){
     }, []);
     
 
+
+    const [selectedTimeRange, setSelectedTimeRange]=useState('');
+    const timeChange=(startTime, endTime)=>{
+        console.log("This is the start time :",startTime, endTime);
+        console.log("This is the start time :",endTime);
+        setSelectedTimeRange({
+            start: startTime,
+            end: endTime,
+        });
+        console.log(selectedTimeRange);
+        
+    }
+    let curr_hours = new Date().getHours();
+    let curr_minutes = new Date().getMinutes();
     return(
         <div className='main-container'>
-            <div className="class-container">
+            <div>
                 <div className="classlist">
-                    
-                    <h3 className="empty-header">Currently Available: </h3>
+                    <SearchTime onTimeChange = {timeChange} className="searchtime"/>
+                    <h3 className="empty-header">Currently Available:</h3>
                     <div className='container'>
                         {jsonData ? (
                             <div>

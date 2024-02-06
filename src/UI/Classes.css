@@ -35,3 +35,8 @@
     padding: 1px;
 }
 
+.searchtime{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
