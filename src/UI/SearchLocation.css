@@ -1,10 +1,12 @@
 .search-bar{
-    margin-top: 0px;
+    margin-top: 90px;
     background-color:aliceblue;
     color: rgb(36, 36, 36);
     padding: 4px;
     border-radius: 10px;
     border: 2px solid rgb(217, 255, 0); 
+    position: fixed;
+    align-self: center;
 }
 
 .class-container2 {
@@ -35,4 +37,8 @@
     background-color:rgb(122, 10, 33);
     padding: 5px;
     border-radius: 2px;
+}
+
+.classlist-days{
+    margin-top: 150px;
 }

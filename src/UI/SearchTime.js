@@ -22,14 +22,6 @@ function SearchTime({onTimeChange}){
         console.log(selectedTimeEnd);
     }
 
-    // useEffect(() => {
-    //     // console.log(todayStartOfTheDay);
-    //     const interval = setInterval(() => {
-    //       setTodayStartOfTheDay(dayjs().startOf('minute'));
-    //     }, 60000); 
-    //     return () => clearInterval(interval);
-    //   }, []);
-
     
     return(
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -37,19 +29,17 @@ function SearchTime({onTimeChange}){
             label="TimePicker" 
             sx={{
                 display:'flex', 
-                position:'fixed', 
-                mt:'45px',
+                position:'relative', 
+                mt:'90px',
                 textAlign: 'center',
                 alignContent:'center',
                 }}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <TimePicker defaultValue={todayStartOfTheDay} 
-                    disablePast  
                     sx={{
                         backgroundColor:'aliceblue',
                         borderRadius:'5px',
                         m: '5px',
-                        ml: '60px',
                         '& .MuiInputBase-root': {
                         width: '100px', 
                         height:'20px'
@@ -61,18 +51,14 @@ function SearchTime({onTimeChange}){
                     }} 
                         onChange={timeStart}/>
                     <TimePicker defaultValue={todayStartOfTheDay.add(1,'hour')} 
-                    disablePast  
-                    sx={{
-                        backgroundColor:'aliceblue', 
-                        borderRadius:'5px',
+                    sx={{backgroundColor:'aliceblue', borderRadius:'5px',
                         '& .MuiInputBase-root': {
                             width: '100px',
                             height:'20px'
                         },
                         '& .MuiInputBase-input': {
                             fontSize: '14px', 
-                        },
-                        alignSelf: 'center',
+                        },alignSelf: 'center',
                         }} 
                     onChange={timeEnd}/>
                 </div>

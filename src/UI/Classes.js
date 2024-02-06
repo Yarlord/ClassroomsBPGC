@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
 import SearchTime from './SearchTime';
+import { List, ListItem, Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function Classes(){
     const [jsonData, setJsonData] = useState(null);
@@ -17,7 +19,7 @@ function Classes(){
                 console.error('Error fetching data:', error);
             }
         };
-        fetchData();
+        fetchData(); 
     }, []);
 
     let day = new Date().getDay();
@@ -34,7 +36,7 @@ function Classes(){
         ['6', 'S']
       ];
 
-    function findEmptyClasses(inputArray, searchString){
+    function findEmptyClasses(inputArray, searchString, ){
         for (const item of inputArray){
             if (item[0]===searchString){
                 return item[1] || [];
@@ -56,8 +58,6 @@ function Classes(){
         res=res+" "+(time);
         return res;
     }
-    let str = convertToDTP(day, current_time, day_mapping);
-    let arr = findEmptyClasses(finalRes, str);
 
     const [time, setTime] = useState(new Date());
     useEffect(() => {
@@ -80,32 +80,50 @@ function Classes(){
         console.log(selectedTimeRange);
         
     }
-    let curr_hours = new Date().getHours();
-    let curr_minutes = new Date().getMinutes();
+
+    let str = convertToDTP(day, 11, day_mapping);
+    let arr = findEmptyClasses(finalRes, str);
+
+    const groupedClasses = arr.reduce((result, item) => {
+        const firstLetter = item[0];
+        if (!result[firstLetter]) {
+            result[firstLetter] = [];
+        }
+        result[firstLetter].push(item);
+        return result;
+    }, {});
+
     return(
         <div className='main-container'>
             <div>
-                <div className="classlist">
-                    <SearchTime onTimeChange = {timeChange} className="searchtime"/>
-                    <h3 className="empty-header">Currently Available:</h3>
-                    <div className='container'>
+                <SearchTime onTimeChange = {timeChange} className="searchtime"/>
+                
+                 <List>
                         {jsonData ? (
-                            <div>
-                            {arr.map((item,index) => (
-                                <div key={index}>                            
-                                <div className='avail-classes'>
-                                    {
-                                    <p>{item}</p>
-                                    }
-                                </div>
-                                </div>
-                            ))}
-                            </div>
+                            Object.entries(groupedClasses).map(([letter, items], index) => (
+                                <Accordion key={index}>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls={`panel${index}a-content`}
+                                        id={`panel${index}a-header`}
+                                    >
+                                        <Typography>{letter}</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <List>
+                                            {items.map((classItem, subIndex) => (
+                                                <ListItem key={subIndex}>
+                                                    <Typography>{classItem}</Typography>
+                                                </ListItem>
+                                            ))}
+                                        </List>
+                                    </AccordionDetails>
+                                </Accordion>
+                            ))
                         ) : (
                             <p>Loading...</p>
                         )}
-                    </div>
-                </div>
+                    </List>
                 
             </div>
         </div>

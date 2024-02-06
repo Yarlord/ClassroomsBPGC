@@ -120,10 +120,10 @@ function SearchLocation(){
             onChange={handleInput}
             className='search-bar'>
             </input>
-            <div className="class-container2">
+            <div className="hi">
                 {/* <h3 className="empty-header"> Available: </h3> */}
 
-                <div className="classlist">
+                <div className="classlist-days">
                     <table>
                         <thead>
                         <tr>
