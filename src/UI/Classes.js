@@ -98,10 +98,10 @@ function Classes(){
             <div>
                 <SearchTime onTimeChange = {timeChange} className="searchtime"/>
                 
-                 <List>
+                 <List sx={{mb:'80px'}}>
                         {jsonData ? (
                             Object.entries(groupedClasses).map(([letter, items], index) => (
-                                <Accordion key={index}>
+                                <Accordion key={index} sx={{backgroundColor:'#202020', border:'2px solid #A0A000', color:'white'}}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls={`panel${index}a-content`}
@@ -109,7 +109,7 @@ function Classes(){
                                     >
                                         <Typography>{letter}</Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails>
+                                    <AccordionDetails sx={{backgroundColor:'#FFFFFF', color:'black'}}>
                                         <List>
                                             {items.map((classItem, subIndex) => (
                                                 <ListItem key={subIndex}>
