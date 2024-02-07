@@ -36,53 +36,90 @@ function Classes(){
         ['6', 'S']
       ];
 
-    function findEmptyClasses(inputArray, searchString, ){
-        for (const item of inputArray){
-            if (item[0]===searchString){
-                return item[1] || [];
+      function findEmptyClasses(dataArray, dtpArray) {
+        if (dtpArray.length === 0) {
+          return ["Nothing found!"];
+        }
+        for (let item of dtpArray){
+            let index = item.indexOf("-");
+            if (index!==-1){
+                return ["Nothing found!"];
             }
         }
-        return ["No classes found!"];
+      
+        const resSet = new Set();
+      
+        for (const [ctp, rooms] of dataArray) {
+          if (dtpArray.includes(ctp)) {
+            rooms.forEach((room) => resSet.add(room));
+          }
+        }
+      
+        if (dtpArray.length > 1) {
+          for (let i = 1; i < dtpArray.length; i++) {
+            const currentDtp = dtpArray[i];
+            const currentRooms = new Set();
+      
+            for (const [ctp, rooms] of dataArray) {
+              if (ctp === currentDtp) {
+                rooms.forEach((room) => currentRooms.add(room));
+              }
+            }
+      
+            resSet.forEach((room) => {
+              if (!currentRooms.has(room)) {
+                resSet.delete(room);
+              }
+            });
+          }
+        }
+      
+        return [...resSet];
     }
-
-    function convertToDTP(day, time, day_mapping){
-        let res = ""
+      
+    function convertToDTP(day, inputArr, day_mapping){
+        let res = [];
         day = String(day);
+        let startTime = inputArr[0];
+        let endTime = inputArr[1];
         for (const item of day_mapping){
             if (item[0]===(day)){
-                res+=(item[1]);
+                // res+=(item[1]);
+                day = item[1];
             }
         }
-        (time>7)?(time = time-7):(time = 100);
-        time = time.toString();
-        res=res+" "+(time);
+        
+        if (inputArr[0]>inputArr[1]){
+            res=[];
+        }
+        else{
+            while (endTime>=startTime){
+                res.push(day+" "+endTime.toString());
+                console.log(res);
+                endTime=endTime-1;
+            }
+        }
         return res;
     }
 
-    const [time, setTime] = useState(new Date());
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setTime(new Date());
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
+    // const [time, setTime] = useState(new Date());
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       setTime(new Date());
+    //     }, 1000);
+    //     return () => clearInterval(interval);
+    // }, []);
     
 
 
     const [selectedTimeRange, setSelectedTimeRange]=useState('');
     const timeChange=(startTime, endTime)=>{
-        console.log("This is the start time :",startTime, endTime);
-        console.log("This is the start time :",endTime);
-        setSelectedTimeRange({
-            start: startTime,
-            end: endTime,
-        });
-        console.log(selectedTimeRange);
-        
+        setSelectedTimeRange([startTime-7, endTime-7]);        
     }
+    // console.log(selectedTimeRange);
 
-    let str = convertToDTP(day, 11, day_mapping);
-    let arr = findEmptyClasses(finalRes, str);
+    let res = convertToDTP(day, selectedTimeRange, day_mapping);
+    let arr = findEmptyClasses(finalRes, res);
 
     const groupedClasses = arr.reduce((result, item) => {
         const firstLetter = item[0];
@@ -101,7 +138,7 @@ function Classes(){
                  <List sx={{mb:'80px'}}>
                         {jsonData ? (
                             Object.entries(groupedClasses).map(([letter, items], index) => (
-                                <Accordion key={index} sx={{backgroundColor:'#202020', border:'2px solid #A0A000', color:'white'}}>
+                                <Accordion key={index} sx={{backgroundColor:'#202020', border:'2px solid #A0A000', borderRadius:'10px', color:'white'}}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls={`panel${index}a-content`}
@@ -110,7 +147,7 @@ function Classes(){
                                         <Typography>{letter}</Typography>
                                     </AccordionSummary>
                                     <AccordionDetails sx={{backgroundColor:'#FFFFFF', color:'black'}}>
-                                        <List>
+                                        <List sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
                                             {items.map((classItem, subIndex) => (
                                                 <ListItem key={subIndex}>
                                                     <Typography>{classItem}</Typography>

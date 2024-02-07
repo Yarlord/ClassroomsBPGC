@@ -7,22 +7,24 @@ import Styles from './Classes.css';
 import { Container } from '@mui/material';
 
 function SearchTime({onTimeChange}){
-    const [selectedTimeStart, setSelectedTimeStart] = useState(dayjs().startOf('minute'));
-    const [selectedTimeEnd, setSelectedTimeEnd] = useState();
     const [todayStartOfTheDay, setTodayStartOfTheDay] = useState(dayjs().startOf('minute'));
 
-    const timeStart = (time) =>{
+    const [selectedTimeStart, setSelectedTimeStart] = useState(dayjs());
+    const [selectedTimeEnd, setSelectedTimeEnd] = useState(dayjs().add(1, 'hour'));
+
+    const handleTimeChangeStart = (time) => {
         setSelectedTimeStart(time);
-        onTimeChange(selectedTimeStart, time);
-    }
+        // setSelectedTimeEnd(time.add(1,"hour"));
+        console.log(time["$H"]);
+        onTimeChange(time["$H"], selectedTimeEnd["$H"]);
+    };
 
-    const timeEnd = (time) =>{
+    const handleTimeChangeEnd = (time) => {
         setSelectedTimeEnd(time);
-        onTimeChange(selectedTimeStart, time);
-        console.log(selectedTimeEnd);
-    }
-
-    
+        console.log(time["$H"]);
+        onTimeChange(selectedTimeStart["$H"], time["$H"]);
+    };
+        
     return(
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Container 
@@ -35,7 +37,7 @@ function SearchTime({onTimeChange}){
                 alignContent:'center',
                 }}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <TimePicker defaultValue={todayStartOfTheDay} 
+                    <TimePicker value={todayStartOfTheDay} 
                     sx={{
                         backgroundColor:'aliceblue',
                         borderRadius:'5px',
@@ -49,8 +51,8 @@ function SearchTime({onTimeChange}){
                         },
                         alignSelf: 'center',
                     }} 
-                        onChange={timeStart}/>
-                    <TimePicker defaultValue={todayStartOfTheDay.add(1,'hour')} 
+                        onChange={handleTimeChangeStart}/>
+                    <TimePicker value={todayStartOfTheDay.add(1,'hour')} 
                     sx={{backgroundColor:'aliceblue', borderRadius:'5px',
                         '& .MuiInputBase-root': {
                             width: '100px',
@@ -60,7 +62,7 @@ function SearchTime({onTimeChange}){
                             fontSize: '14px', 
                         },alignSelf: 'center',
                         }} 
-                    onChange={timeEnd}/>
+                    onChange={handleTimeChangeEnd}/>
                 </div>
                 
             </Container>
