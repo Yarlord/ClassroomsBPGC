@@ -32,7 +32,7 @@ function SearchTime({onTimeChange}){
             sx={{
                 display:'flex', 
                 position:'relative', 
-                mt:'75px',
+                mt:'80px',
                 textAlign: 'center',
                 alignContent:'center',
                 }}>
@@ -41,7 +41,7 @@ function SearchTime({onTimeChange}){
                     sx={{
                         backgroundColor:'#940B92',
                         borderRadius:'5px', 
-                        m: '10px',
+                        m: '7px',
                         '& .MuiInputBase-root': {
                             width: '130px', 
                             height:'40px',
@@ -54,8 +54,8 @@ function SearchTime({onTimeChange}){
                         textAlign: 'center',
                     }} 
                         onChange={handleTimeChangeStart}/>
-                    <TimePicker value={dayjs().startOf('hour').add(50, 'minute')} 
-                    sx={{backgroundColor:'#940B92', borderRadius:'5px', m: '10px',
+                    <TimePicker value={dayjs().startOf('hour').add(59, 'minute')} 
+                    sx={{backgroundColor:'#940B92', borderRadius:'5px', m: '7px',
                         '& .MuiInputBase-root': {
                             width: '130px',
                             height:'40px',

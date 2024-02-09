@@ -54,7 +54,7 @@ function Classes(){
           if (dtpArray.includes(ctp)) {
             rooms.forEach((room) => resSet.add(room));
           }
-          console.log(resSet);
+        //   console.log(resSet);
         }
       
         if (dtpArray.length > 1) {
@@ -114,7 +114,7 @@ function Classes(){
     
 
 
-    const [selectedTimeRange, setSelectedTimeRange]=useState('');
+    const [selectedTimeRange, setSelectedTimeRange]=useState([new Date().getHours()-7, new Date().getHours()-6]);
     const timeChange=(startTime, endTime)=>{
         setSelectedTimeRange([startTime-7, endTime-7]);        
     }
@@ -131,7 +131,6 @@ function Classes(){
         result[firstLetter].push(item);
         return result;
     }, {});
-
     return(
         <div className='main-container'>
             <div>
@@ -140,7 +139,7 @@ function Classes(){
                  <List sx={{mb:'80px', mt:'10px', maxWidth:'300px'}}>
                         {jsonData ? (
                             Object.entries(groupedClasses).map(([letter, items], index) => (
-                                <Accordion key={index} sx={{backgroundColor: '#512B81', border:'2px solid #512B81', borderRadius:'10px', color:'white', mb: '20px'}}>
+                                <Accordion key={index} sx={{backgroundColor: '#512B81', border:'2px solid #512B81', borderRadius:'10px', color:'white', mb: '20px', minWidth: '300px'}}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls={`panel${index}a-content`}
