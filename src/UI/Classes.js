@@ -145,13 +145,13 @@ function Classes(){
                                         aria-controls={`panel${index}a-content`}
                                         id={`panel${index}a-header`}
                                     >
-                                        <Typography>{letter}</Typography>
+                                        <Typography sx={{fontFamily: 'Playfair', fontSize: '20px'}}>{letter}</Typography>
                                     </AccordionSummary>
                                     <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', }}>
                                         <List sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
                                             {items.map((classItem, subIndex) => (
                                                 <ListItem key={subIndex}>
-                                                    <Typography>{classItem}</Typography>
+                                                    <Typography sx={{fontSize: '20px', fontFamily: 'Rubik'}}>{classItem}</Typography>
                                                 </ListItem>
                                             ))}
                                         </List>

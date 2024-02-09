@@ -56,7 +56,7 @@ function App() {
 
                       <div className='search-class' onClick={()=>handleOnClick('searchDate')}>
                           <FaCalendar/>
-                          <p className='icon-text'>Day</p>
+                          <p className='icon-text'>Date</p>
                       </div>
                       
                   </div>

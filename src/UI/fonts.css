@@ -19,4 +19,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Rubik';
+  src: url('./assets/fonts/Rubik/Rubik-Var.ttf') format('truetype'); /* adjust the path and format as needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
   
