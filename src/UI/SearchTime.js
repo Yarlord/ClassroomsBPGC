@@ -15,13 +15,13 @@ function SearchTime({onTimeChange}){
     const handleTimeChangeStart = (time) => {
         setSelectedTimeStart(time);
         // setSelectedTimeEnd(time.add(1,"hour"));
-        console.log(time["$H"]);
+        // console.log(time["$H"]);
         onTimeChange(time["$H"], selectedTimeEnd["$H"]);
     };
 
     const handleTimeChangeEnd = (time) => {
         setSelectedTimeEnd(time);
-        console.log(time["$H"]);
+        // console.log(time["$H"]);
         onTimeChange(selectedTimeStart["$H"], time["$H"]);
     };
         
@@ -32,31 +32,34 @@ function SearchTime({onTimeChange}){
             sx={{
                 display:'flex', 
                 position:'relative', 
-                mt:'90px',
+                mt:'75px',
                 textAlign: 'center',
                 alignContent:'center',
                 }}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <TimePicker value={todayStartOfTheDay} 
                     sx={{
-                        backgroundColor:'aliceblue',
-                        borderRadius:'5px',
-                        m: '5px',
+                        backgroundColor:'#940B92',
+                        borderRadius:'5px', 
+                        m: '15px',
                         '& .MuiInputBase-root': {
-                        width: '100px', 
-                        height:'20px'
+                            width: '160px', 
+                            height:'40px',
+                            color:'white',
                         },
                         '& .MuiInputBase-input': {
                         fontSize: '14px', 
                         },
                         alignSelf: 'center',
+                        textAlign: 'center',
                     }} 
                         onChange={handleTimeChangeStart}/>
-                    <TimePicker value={todayStartOfTheDay.add(1,'hour')} 
-                    sx={{backgroundColor:'aliceblue', borderRadius:'5px',
+                    <TimePicker value={dayjs().startOf('hour').add(50, 'minute')} 
+                    sx={{backgroundColor:'#940B92', borderRadius:'5px', 
                         '& .MuiInputBase-root': {
-                            width: '100px',
-                            height:'20px'
+                            width: '160px',
+                            height:'40px',
+                            color:'white',
                         },
                         '& .MuiInputBase-input': {
                             fontSize: '14px', 

@@ -12,4 +12,11 @@
     font-style: normal;
   }
 
+@font-face {
+  font-family: 'Playfair';
+  src: url('./assets/fonts/Playfair/PlayfairDisplay-Variable.ttf') format('truetype'); /* adjust the path and format as needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
   

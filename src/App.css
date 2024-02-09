@@ -4,7 +4,7 @@
   align-items:center;
   /* text-align: center; */
   flex-flow: column wrap;
-  background-color: hsl(0, 0%, 12%);
+  background-color: hsl(0, 0%, 6%);
   min-height: 100vh;
 }
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
 import styles from './SearchLocation.css';
 import { FaSearch } from "react-icons/fa";
-
+import levenshtein from 'fast-levenshtein';
 
 function SearchLocation(){
 
@@ -23,6 +23,13 @@ function SearchLocation(){
         fetchData();
     }, []);
 
+
+    // function fuzzySearch(query, target, tolerance) {
+    //     const distance = levenshtein.get(query.toLowerCase(), target.toLowerCase());
+    //     return distance <= tolerance;
+    // }
+
+    
     let day = new Date().getDay();
     let current_time = new Date().getHours();
     let finalRes=[];

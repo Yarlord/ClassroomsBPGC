@@ -3,6 +3,7 @@ import Styles from './Classes.css';
 import SearchTime from './SearchTime';
 import { List, ListItem, Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import '../UI/fonts.css';
 
 function Classes(){
     const [jsonData, setJsonData] = useState(null);
@@ -12,7 +13,7 @@ function Classes(){
                 const response = await fetch('./output.json');
                 console.log('Response:', response);
                 const data = await response.json();
-                console.log('Data:', data);
+                // console.log('Data:', data);
                 setJsonData(data);
             }
             catch(error){
@@ -53,6 +54,7 @@ function Classes(){
           if (dtpArray.includes(ctp)) {
             rooms.forEach((room) => resSet.add(room));
           }
+          console.log(resSet);
         }
       
         if (dtpArray.length > 1) {
@@ -73,7 +75,7 @@ function Classes(){
             });
           }
         }
-      
+        // console.log([...resSet]);
         return [...resSet];
     }
       
@@ -95,7 +97,7 @@ function Classes(){
         else{
             while (endTime>=startTime){
                 res.push(day+" "+endTime.toString());
-                console.log(res);
+                // console.log(res); 
                 endTime=endTime-1;
             }
         }
@@ -135,10 +137,10 @@ function Classes(){
             <div>
                 <SearchTime onTimeChange = {timeChange} className="searchtime"/>
                 
-                 <List sx={{mb:'80px'}}>
+                 <List sx={{mb:'80px', minWidth: '360px'}}>
                         {jsonData ? (
                             Object.entries(groupedClasses).map(([letter, items], index) => (
-                                <Accordion key={index} sx={{backgroundColor:'#202020', border:'2px solid #A0A000', borderRadius:'10px', color:'white'}}>
+                                <Accordion key={index} sx={{backgroundColor: '#512B81', border:'2px solid #512B81', borderRadius:'10px', color:'white', mb: '20px', fontFamily: 'Playfair'}}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls={`panel${index}a-content`}
@@ -146,7 +148,7 @@ function Classes(){
                                     >
                                         <Typography>{letter}</Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails sx={{backgroundColor:'#FFFFFF', color:'black'}}>
+                                    <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', }}>
                                         <List sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
                                             {items.map((classItem, subIndex) => (
                                                 <ListItem key={subIndex}>
