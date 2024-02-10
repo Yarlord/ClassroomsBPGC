@@ -145,7 +145,7 @@ function Classes(){
                                         aria-controls={`panel${index}a-content`}
                                         id={`panel${index}a-header`}
                                     >
-                                        <Typography sx={{fontFamily: 'Playfair', fontSize: '20px'}}>{letter}</Typography>
+                                        <Typography sx={{fontFamily: 'Playfair', fontSize: '20px'}}>{(letter==='A'||letter==='C'||letter==='D')?letter+ " Side":(letter==='L'?letter + 'ecture Theatres':(letter==='N'?"No classes found!":letter))}</Typography>
                                     </AccordionSummary>
                                     <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', }}>
                                         <List sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
