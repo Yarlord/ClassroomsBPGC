@@ -1,38 +1,39 @@
 import styles from './App.css';
-import Class from "./UI/Classes";
+import Home from "./UI/Home";
 import Styles from './UI/Drawer.css';
 import SearchLocation from "./UI/SearchLocation";
-import SearchDate from './UI/SearchDate';
+import Today from './UI/Classes';
 import { FaSearchLocation } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
 import { FaHouseUser } from "react-icons/fa";
 import './UI/fonts.css';
 import React, { useState, useEffect,  useMemo } from 'react';
 import { render } from '@testing-library/react';
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+// import Particles, { initParticlesEngine } from "@tsparticles/react";
 // import { loadAll } from "@/tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+// import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 
 function App() {
-  const [init, setInit] = useState(false);
-
-  // this should be run only once per application lifetime
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      //await loadAll(engine);
-      //await loadFull(engine);
-      await loadSlim(engine);
-      //await loadBasic(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
-
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
+  // const [init, setInit] = useState(false);
+  // const [particleEngine, setParticleEngine] = useState(null);
+  // // this should be run only once per application lifetime
+  // useEffect(() => {
+  //   initParticlesEngine(async (engine) => {
+  //     //await loadAll(engine);
+  //     //await loadFull(engine);
+  //     await loadSlim(engine);
+  //     setParticleEngine(engine);
+  //     //await loadBasic(engine);
+  //   }).then(() => {
+  //     setInit(true);
+  //   });
+  // }, []);
+  
+  // const particlesLoaded = (container) => {
+  //   console.log(container);
+  // };
 
 
   // const [time, setTime] = useState(new Date());
@@ -54,9 +55,9 @@ function App() {
       case 'searchLocation':
         return <SearchLocation />;
       case 'searchDate':
-        return <SearchDate />;
+        return <Today />;
       default:
-        return <Class />;
+        return <Home />;
     }
   }
 
@@ -73,7 +74,7 @@ function App() {
       interactivity: {
         events: {
           onClick: {
-            enable: true,
+            enable: false,
             mode: "push",
           },
           onHover: {
@@ -109,7 +110,7 @@ function App() {
             default: "out",
           },
           random: false,
-          speed: 6,
+          speed: 3,
           straight: false,
         },
         number: {
@@ -135,13 +136,8 @@ function App() {
 
   
   return (
-    <div className="particles-container">
-        <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
-        <div className="main">
+
+      <div className="main">
         <h1 className="bpgc-classes">CLASSROOMS</h1>    
         {renderComponent()}
         <div className='searchbar'>
@@ -169,7 +165,7 @@ function App() {
         </div>
         
       </div>
-    </div>
+
     
   );
 
