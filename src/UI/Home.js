@@ -118,12 +118,12 @@ function Home ({buttonVal}){
         <Grid sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginBottom:'100px'}}>
           <Button className="shine" sx={{mt:'200px', backgroundColor:'#282A3A', padding:'20px 20px', display:'flex', flexDirection:'column'}} onClick={handleOnClick}>
             <Typography sx={{fontSize: '15px', fontFamily: 'Rubik', color:'whitesmoke'}}>Available classrooms &emsp;→ </Typography>
-            <Typography sx={{fontSize:'8px', fontFamily: 'Playfair',  color:'whitesmoke'}}><br/>Check for empty classes available now</Typography>
+            <Typography sx={{fontSize:'10px', fontFamily: 'Playfair',  color:'whitesmoke'}}><br/>Check for empty classes available now</Typography>
 
           </Button>
           <Button className="shine" sx={{mt:'200px', backgroundColor:'#282A3A', padding:'20px 20px', display:'flex', flexDirection:'column'}} onClick={handleOnClickLoc}>
             <Typography sx={{fontSize: '15px', fontFamily: 'Rubik',  color:'whitesmoke'}}>Search Classrooms  &emsp;→</Typography>
-            <Typography sx={{fontSize:'8px', fontFamily: 'Playfair',  color:'whitesmoke'}}><br/>Search when specific classes are empty</Typography>
+            <Typography sx={{fontSize:'10px', fontFamily: 'Playfair',  color:'whitesmoke'}}><br/>Search when specific classes are empty</Typography>
 
           </Button>
         </Grid>
