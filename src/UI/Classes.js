@@ -122,7 +122,9 @@ function Classes(){
 
     let res = convertToDTP(day, selectedTimeRange, day_mapping);
     let arr = findEmptyClasses(finalRes, res);
-
+    if (arr.length==0){
+        arr = ["Nothing found!"];
+    }
     const groupedClasses = arr.reduce((result, item) => {
         const firstLetter = item[0];
         if (!result[firstLetter]) {
