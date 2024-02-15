@@ -4,17 +4,17 @@
   "description":  "Find empty classrooms in the campus building. Find refuge in AC =D.",
   "icons": [
     {
-      "src": "classes.ico",
+      "src": "bpgcc.ico",
       "sizes": "72x72",
       "type": "image/x-icon"
     },
     {
-      "src": "classes.png",
+      "src": "bpgcc.png",
       "type": "image/png",
       "sizes": "1024x1024"
     },
     {
-      "src": "classes.png",
+      "src": "bpgcc.png",
       "type": "image/png",
       "sizes": "1024x1024"
     }
