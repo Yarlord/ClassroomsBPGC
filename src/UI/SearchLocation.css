@@ -53,7 +53,7 @@
     background: repeating-linear-gradient(
         150deg,
         #5a00ad,
-        #5a00ad 5px,
+        #5a00ad 0.5px,
         #465298 10px,
         #465298 20px
     );
