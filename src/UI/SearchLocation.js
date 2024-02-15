@@ -122,7 +122,7 @@ function SearchLocation(){
                                         .map((item, index) => (
                                             <p key={index} className="rect">{Number(item.split(' ')[1])+7+":00"}
                                             <br/>
-                                            <Typography sx={{display:'flex', justifyContent:'center', fontFamily:'Rubik', fontSize:'20px'}}>
+                                            <Typography sx={{display:'flex', justifyContent:'center', fontFamily:'Rubik', fontSize:'18px'}}>
                                                 {searchTerm}
                                             </Typography>
                                             {Number(item.split(' ')[1])+8+":00"}</p>

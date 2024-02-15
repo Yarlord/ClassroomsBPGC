@@ -9,12 +9,21 @@
     /* margin-left: 15vw; */
 }
 
-@media screen and (min-width:300px) {
+@media screen and (min-width:300px) and (max-width:800px){
     .search-bar{
         padding-right: 23vw;
         margin-left: 10px;
     }
 }
+
+
+@media screen and (min-width:800px){
+    .search-bar{
+        padding-right: 8vw;
+        margin-left: 10px;
+    }
+}
+
 
 .passive{
     background-color:rgb(34, 34, 34);
@@ -25,10 +34,10 @@
 }
 
 .active{
-    background-color:rgb(122, 10, 33);
+    background-color:rgb(139, 2, 2);
     padding: 5px 15px;
     border-radius: 2px;
-
+    margin-bottom: 5px;
 }
 
 .classlist-days{
@@ -36,10 +45,11 @@
     color: aliceblue;
 }
 .rect1{
-    border: #ffffff solid;
+    border: #ffffff solid 1px;
     border-radius: 10px;
-    background-color: #270000;
+    background-color: #1d1d1d;
     text-align: left;
+    margin-top: 100px;
 }
 .rect{
     background-color: #018d97;
@@ -52,10 +62,10 @@
     font-family: Rubik;
     background: repeating-linear-gradient(
         150deg,
-        #5a00ad,
-        #5a00ad 0.5px,
-        #465298 10px,
-        #465298 20px
+        #165298,
+        #165298 10px,
+        #2d3879 10px,
+        #2d3879 20px
     );
 }
 
