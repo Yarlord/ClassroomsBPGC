@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
 import styles from './SearchLocation.css';
 import { FaSearch } from "react-icons/fa";
+import './fonts.css';
 
 import 'intl';
 import 'intl/locale-data/jsonp/en';
+
+
+import { Container, Typography, Paper, Grid } from '@mui/material';
 
 function SearchLocation(){
 
@@ -36,7 +40,8 @@ function SearchLocation(){
         ['3', 'W', 'Wed'],
         ['4', 'B', 'Thu'],
         ['5', 'F', 'Fri'],
-        ['6', 'S', 'Sat']
+        ['6', 'S', 'Sat'],
+        ['7', 'S', 'Sun']
       ];
 
     function findDaysGivenClass(inputArray, searchString){
@@ -55,50 +60,12 @@ function SearchLocation(){
             return ["No result found!"];
         }
     }
-
-    // function convertFromDTP(arr, day_mapping){
-    //     let res = [];
-
-    //     for (let item of arr){
-    //         let str="";
-    //         let time = item.slice(2);
-    //         let day = item.charAt(0);
-    //         for (const mapper of day_mapping){
-    //             if (day===mapper[1]){
-    //                 str = day.replace(day, mapper[2]);
-    //                 // console.log(str);
-    //             }
-    //         }      
-    //         time = Number(time);
-    //         time += 7;
-    //         let time_2 = time+1;
-    //         let time_str = time.toString()+":00-"+time_2.toString()+":00";
-    //         str= str + " "+ time_str;
-    //         // res(str);
-    //         // console.log(str);
-    //         res.push(str);
-    //     }
-    //     return res;
-    // }
-
     const [searchTerm, setSearchTerm] = useState('');
     const handleInput = (event)=>{
-        setSearchTerm(event.target.value);
+        setSearchTerm(event.target.value.toUpperCase());
     }
 
     let arr = findDaysGivenClass(finalRes, searchTerm);
-    // arr = convertFromDTP(arr, day_mapping);
-    // console.log(arr);
-
-
-    const [time, setTime] = useState(new Date());
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setTime(new Date());
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
-    
 
     const [sortByDay, setSortByDay] = useState(null);
 
@@ -112,9 +79,8 @@ function SearchLocation(){
 
     const isSortedByDay = (day) => sortByDay === day;
 
-
     return(
-        <div>
+        <div style={{marginBottom:'80px'}}> 
             <input 
             type = "text"
             placeholder="Search classrooms"
@@ -122,8 +88,7 @@ function SearchLocation(){
             onChange={handleInput}
             className='search-bar'>
             </input>
-            <div className="hi">
-                {/* <h3 className="empty-header"> Available: </h3> */}
+            <div className="clas">
 
                 <div className="classlist-days">
                     <table>
@@ -142,7 +107,6 @@ function SearchLocation(){
                         </thead>
                         <tbody>
                         {jsonData ? (
-                            // Render table rows based on sorted day
                             day_mapping.map(([numeric, shortName, fullName]) => (
                             <tr key={numeric}>
                                 {isSortedByDay(fullName) ? (
@@ -156,12 +120,16 @@ function SearchLocation(){
                                             return timeA - timeB;
                                         })
                                         .map((item, index) => (
-                                            <p key={index} className="rect">{Number(item.split(' ')[1])+7+":00"}</p>
+                                            <p key={index} className="rect">{Number(item.split(' ')[1])+7+":00"}
+                                            <br/>
+                                            <Typography sx={{display:'flex', justifyContent:'center', fontFamily:'Rubik', fontSize:'20px'}}>
+                                                {searchTerm}
+                                            </Typography>
+                                            {Number(item.split(' ')[1])+8+":00"}</p>
                                         ))
                                     }
                                 </td>
                                 ) : (
-                                // Display empty cells for other days
                                 day_mapping.map((day) => <td key={day[0]}></td>)
                                 )}
                             </tr>

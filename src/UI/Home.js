@@ -25,15 +25,15 @@ function Home ({buttonVal}){
     return(
       <div>
         <Grid sx={{display:'flex', flexDirection:'column', gap:'2px'}}>
-          <Button className="shine" sx={{mt:'200px', backgroundColor:'#282A3A', padding:'10px 20px',}} onClick={handleOnClick}>
-            <Typography sx={{fontSize: '10px', fontFamily: 'Rubik'}}>Available classrooms  </Typography>
-            <Typography sx={{fontSize:'20px', }}>&emsp;&gt;&gt;</Typography>
+          <Button className="shine" sx={{mt:'200px', backgroundColor:'#282A3A', padding:'20px 20px',}} onClick={handleOnClick}>
+            <Typography sx={{fontSize: '20px', fontFamily: 'Rubik', color:'whitesmoke'}}>Available classrooms  </Typography>
+            <Typography sx={{fontSize:'20px', fontFamily: 'Rubik',  color:'whitesmoke'}}>&emsp;→</Typography>
 
           </Button>
-          <Button className="shine" sx={{mt:'200px', backgroundColor:'#282A3A', padding:'10px 20px',}} onClick={handleOnClickLoc}>
-            <Typography sx={{fontSize: '10px', fontFamily: 'Rubik'}}>Search Classrooms  </Typography>
-            <Typography sx={{fontSize:'20px', }}>&emsp;&gt;&gt;</Typography>
+          <Button className="shine" sx={{mt:'200px', backgroundColor:'#282A3A', padding:'20px 20px',}} onClick={handleOnClickLoc}>
+            <Typography sx={{fontSize: '20px', fontFamily: 'Rubik',  color:'whitesmoke'}}>Search Classrooms  </Typography>
 
+            <Typography sx={{fontSize:'20px', fontFamily: 'Rubik',  color:'whitesmoke'}}>&emsp;→</Typography>
           </Button>
         </Grid>
         
