@@ -149,8 +149,8 @@ function Classes(){
                                     >
                                         <Typography sx={{fontFamily: 'Playfair', fontSize: '20px'}}>{(letter==='A'||letter==='C'||letter==='D')?letter+ " Side":(letter==='L'?letter + 'ecture Theatres':(letter==='N'?"No classes found!":letter))}</Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', }}>
-                                        <List sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+                                    <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', borderRadius:'6px'}}>
+                                        <List sx={{display:'flex', flexDirection:'column', alignItems:'center',}}>
                                             {items.map((classItem, subIndex) => (
                                                 <ListItem key={subIndex}>
                                                     <Typography sx={{fontSize: '20px', fontFamily: 'Rubik'}}>{classItem}</Typography>

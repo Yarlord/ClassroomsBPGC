@@ -52,7 +52,6 @@
     margin-top: 100px;
 }
 .rect{
-    background-color: #018d97;
     text-align: center;
     /* border: #4b0000 solid; */
     border-radius: 5px;
@@ -60,13 +59,7 @@
     color: white;
     text-align: left;
     font-family: Rubik;
-    background: repeating-linear-gradient(
-        150deg,
-        #165298,
-        #165298 10px,
-        #2d3879 10px,
-        #2d3879 20px
-    );
+    background-color: rgb(0, 142, 212);
 }
 
 .clas{

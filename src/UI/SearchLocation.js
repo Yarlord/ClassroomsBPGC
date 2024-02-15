@@ -35,13 +35,13 @@ function SearchLocation(){
     jsonData?finalRes=jsonData:finalRes=[]; 
 
     const day_mapping = [
-        ['1', 'M', 'Mon'],
-        ['2', 'T', 'Tue'],
-        ['3', 'W', 'Wed'],
-        ['4', 'B', 'Thu'],
-        ['5', 'F', 'Fri'],
-        ['6', 'S', 'Sat'],
-        ['7', 'S', 'Sun']
+        ['1', 'M', 'M'],
+        ['2', 'T', 'T'],
+        ['3', 'W', 'W'],
+        ['4', 'B', 'Th'],
+        ['5', 'F', 'F'],
+        ['6', 'S', 'S'],
+        ['7', 'S', 'Su']
       ];
 
     function findDaysGivenClass(inputArray, searchString){
@@ -80,7 +80,7 @@ function SearchLocation(){
     const isSortedByDay = (day) => sortByDay === day;
 
     return(
-        <div style={{marginBottom:'100px'}}> 
+        <div style={{marginBottom:'100px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
             <input 
             type = "text"
             placeholder="Search classrooms"
@@ -100,7 +100,7 @@ function SearchLocation(){
                                 onClick={() => handleHeaderClick(fullName)}
                                 className={isSortedByDay(fullName) ? 'active' : 'passive'}
                             >
-                                {shortName}
+                                {fullName[0]}
                             </th>
                             ))}
                         </tr>
@@ -122,8 +122,8 @@ function SearchLocation(){
                                         .map((item, index) => (
                                             <p key={index} className="rect">{Number(item.split(' ')[1])+7+":00"}
                                             <br/>
-                                            <Typography sx={{display:'flex', justifyContent:'center', fontFamily:'Rubik', fontSize:'18px'}}>
-                                                {searchTerm}
+                                            <Typography sx={{display:'flex', justifyContent:'center', fontFamily:'DM', fontSize:'18px'}}>
+                                                 {searchTerm} available 
                                             </Typography>
                                             {Number(item.split(' ')[1])+8+":00"}</p>
                                         ))

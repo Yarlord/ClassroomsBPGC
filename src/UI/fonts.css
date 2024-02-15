@@ -27,5 +27,12 @@
 }
 
 
+@font-face {
+  font-family: 'DM';
+  src: url('./assets/fonts/DMSans/dmSans.ttf') format('truetype'); /* adjust the path and format as needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
 
   
