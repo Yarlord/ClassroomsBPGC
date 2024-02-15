@@ -141,7 +141,7 @@ function Classes(){
                             Object.entries(groupedClasses).map(([letter, items], index) => (
                                 <Accordion key={index} sx={{backgroundColor: '#512B81', border:'2px solid #512B81', borderRadius:'10px', color:'white', mb: '20px', minWidth: '300px'}}>
                                     <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
+                                        expandIcon={<ExpandMoreIcon sx={{color:'white', border:'#BED754 2px solid', borderRadius:'20px'}}/>}
                                         aria-controls={`panel${index}a-content`}
                                         id={`panel${index}a-header`}
                                     >

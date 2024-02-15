@@ -66,7 +66,7 @@ function SearchLocation(){
     }
 
     let arr = findDaysGivenClass(finalRes, searchTerm);
-
+    // console.log(day_mapping.find((element, shortDay, longDay)=>element==day.toString()));
     const [sortByDay, setSortByDay] = useState(null);
 
     const handleHeaderClick = (day) => {
@@ -80,7 +80,7 @@ function SearchLocation(){
     const isSortedByDay = (day) => sortByDay === day;
 
     return(
-        <div style={{marginBottom:'80px'}}> 
+        <div style={{marginBottom:'100px'}}> 
             <input 
             type = "text"
             placeholder="Search classrooms"

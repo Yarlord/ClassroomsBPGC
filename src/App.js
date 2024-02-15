@@ -67,84 +67,13 @@ function App() {
 
 
 
-  const options = useMemo(
-    () => ({
-      background: {
-        color: {
-          value: "#000000",
-        },
-      },
-      fpsLimit: 120,
-      interactivity: {
-        events: {
-          onClick: {
-            enable: false,
-            mode: "push",
-          },
-          onHover: {
-            enable: false,
-            mode: "repulse",
-          },
-        },
-        modes: {
-          push: {
-            quantity: 4,
-          },
-          repulse: {
-            distance: 200,
-            duration: 0.4,
-          },
-        },
-      },
-      particles: {
-        color: {
-          value: "#fa8635",
-        },
-        links: {
-          color: "#ffffff",
-          distance: 150,
-          enable: false,
-          opacity: 0.5,
-          width: 1,
-        },
-        move: {
-          direction: "top",
-          enable: true,
-          outModes: {
-            default: "out",
-          },
-          random: false,
-          speed: 3,
-          straight: false,
-        },
-        number: {
-          density: {
-            enable: true,
-          },
-          value: 80,
-        },
-        opacity: {
-          value: 0.5,
-        },
-        shape: {
-          type: "circle",
-        },
-        size: {
-          value: { min: 1, max: 5 },
-        },
-      },
-      detectRetina: true,
-    }),
-    [],
-  );
-
+  
   
   return (
 
       <div className="main">
-        <h1 className="bpgc-classes">CLASSROOMS</h1>    
         {renderComponent()}
-        <div className='searchbar'>
+        <div className='drawbar'>
           <div className="drawer">
                 <div className="drawer-details">
                     <div className='icon-container'>

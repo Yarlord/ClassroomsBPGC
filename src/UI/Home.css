@@ -1,0 +1,38 @@
+.bpgc-classes{
+  position:fixed;
+  top: 0;
+  /* display: flex; */
+  /* align-items: center; */
+  /* text-align: center; */
+  background-color: hsl(0, 0%, 10%);
+  color: aliceblue;
+  font-family: 'Marvel';
+  font-size: 50px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+  margin-top: 0px;
+  z-index: 100;
+
+}
+
+.main{
+  /* justify-content:center; */
+  display: flex;
+  align-items:center;
+  /* text-align: center; */
+  flex-flow: column wrap;
+  background-color: hsl(0, 0%, 6%);
+  min-height: 100vh;
+}
+
+.cred{
+  color: aliceblue;
+  font-size: small;
+  z-index: 100;
+  position: fixed;
+  bottom:70px;
+  right:auto;
+  font-family:Playfair;
+}

@@ -32,7 +32,7 @@ function SearchTime({onTimeChange}){
             sx={{
                 display:'flex', 
                 position:'relative', 
-                mt:'80px',
+                mt:'10px',
                 textAlign: 'center',
                 alignContent:'center',
                 }}>
@@ -50,6 +50,7 @@ function SearchTime({onTimeChange}){
                         '& .MuiInputBase-input': {
                         fontSize: '14px', 
                         },
+                        
                         alignSelf: 'center',
                         textAlign: 'center',
                     }} 

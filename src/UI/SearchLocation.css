@@ -1,17 +1,17 @@
 .search-bar{
-    margin-top: 90px;
+    margin-top: 10px;
     background-color:aliceblue;
     color: rgb(36, 36, 36);
     padding: 10px 20px;
     border-radius: 10px;
-    border: 2px solid rgb(217, 255, 0); 
+    border: 2px solid rgb(148, 47, 0); 
     position: fixed;
     /* margin-left: 15vw; */
 }
 
-@media screen and (max-width:800px) {
+@media screen and (min-width:300px) {
     .search-bar{
-        padding-right: 20vw;
+        padding-right: 23vw;
         margin-left: 10px;
     }
 }
@@ -32,7 +32,7 @@
 }
 
 .classlist-days{
-    margin-top: 150px;
+    margin-top: 80px;
     color: aliceblue;
 }
 .rect1{
