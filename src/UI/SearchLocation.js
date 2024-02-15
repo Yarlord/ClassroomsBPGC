@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
 import styles from './SearchLocation.css';
 import { FaSearch } from "react-icons/fa";
-import levenshtein from 'fast-levenshtein';
+
+import 'intl';
+import 'intl/locale-data/jsonp/en';
 
 function SearchLocation(){
 
@@ -13,7 +15,7 @@ function SearchLocation(){
                 const response = await fetch('./output.json');
                 console.log('Response:', response);
                 const data = await response.json();
-                console.log('Data:', data);
+                // console.log('Data:', data);
                 setJsonData(data);
             }
             catch(error){
@@ -22,13 +24,6 @@ function SearchLocation(){
         };
         fetchData();
     }, []);
-
-
-    // function fuzzySearch(query, target, tolerance) {
-    //     const distance = levenshtein.get(query.toLowerCase(), target.toLowerCase());
-    //     return distance <= tolerance;
-    // }
-
     
     let day = new Date().getDay();
     let current_time = new Date().getHours();
@@ -140,7 +135,7 @@ function SearchLocation(){
                                 onClick={() => handleHeaderClick(fullName)}
                                 className={isSortedByDay(fullName) ? 'active' : 'passive'}
                             >
-                                {fullName}
+                                {shortName}
                             </th>
                             ))}
                         </tr>
@@ -152,12 +147,18 @@ function SearchLocation(){
                             <tr key={numeric}>
                                 {isSortedByDay(fullName) ? (
                                 // Display times for the sorted day
-                                <td colSpan={day_mapping.length}>
-                                    {arr.map((item, index) =>
-                                    item.includes(shortName) ? (
-                                        <p key={index}>{item.split(' ')[1]}</p>
-                                    ) : null
-                                    )}
+                                <td colSpan={day_mapping.length} className="rect1"> 
+                                    {arr
+                                        .filter(item => item.includes(shortName))
+                                        .sort((a, b) => {
+                                            const timeA = Number(a.split(' ')[1]) + 7;
+                                            const timeB = Number(b.split(' ')[1]) + 7;
+                                            return timeA - timeB;
+                                        })
+                                        .map((item, index) => (
+                                            <p key={index} className="rect">{Number(item.split(' ')[1])+7+":00"}</p>
+                                        ))
+                                    }
                                 </td>
                                 ) : (
                                 // Display empty cells for other days

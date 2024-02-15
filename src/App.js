@@ -50,6 +50,10 @@ function App() {
       setSelectedComponent(component);
   }
 
+  const handleButton = (component)=>{
+    setSelectedComponent(component);
+  }
+
   const renderComponent = () => {
     switch (selectedComponent) {
       case 'searchLocation':
@@ -57,7 +61,7 @@ function App() {
       case 'searchDate':
         return <Today />;
       default:
-        return <Home />;
+        return <Home buttonVal={handleButton}/>;
     }
   }
 

@@ -29,16 +29,29 @@
 
 .passive{
     background-color:rgb(34, 34, 34);
-    padding: 5px;
+    padding: 10px;
     border-radius: 2px;
 }
 
 .active{
     background-color:rgb(122, 10, 33);
-    padding: 5px;
+    padding: 10px;
     border-radius: 2px;
+
 }
 
 .classlist-days{
     margin-top: 150px;
+    color: aliceblue;
+}
+.rect1{
+    border: #ffffff solid;
+    border-radius: 10px;
+    background-color: rgb(116, 0, 0);
+    text-align: center;
+}
+.rect{
+    background-color: #014901;
+    text-align: center;
+    border: rgb(13, 160, 0) solid;
 }
