@@ -1,21 +1,22 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Classrooms",
+  "name": "BPGC Classrooms",
+  "description":  "Find empty classrooms in the campus building. Find refuge in AC =D.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "classrooms.ico",
+      "sizes": "72x72",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "classrooms.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "1024x1024"
     },
     {
-      "src": "logo512.png",
+      "src": "classrooms.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "1024x1024"
     }
   ],
   "start_url": ".",
