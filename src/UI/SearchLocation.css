@@ -1,6 +1,6 @@
 .passive{
     background-color:rgb(34, 34, 34);
-    padding: 5px 4px;
+    padding: 5px 15px;
     /* padding-left: 20px;
     padding-right: 20px; */
     border-radius: 2px;
@@ -10,12 +10,21 @@
 
 .active{
     background-color:rgb(139, 2, 2);
-    padding: 5px 5px;
+    padding: 5px 15px;
     border-radius: 2px;
     margin-bottom: 5px;
     border: #ffffff solid 1px;
-
 }
+@media screen and (min-width:300px) and (max-width:400px){
+    .active{
+        padding: 5px 12px;
+    }
+    .passive{
+        padding: 5px 12px;
+    }
+  }
+
+
 
 .classlist-days{
     margin-top: 20px;
