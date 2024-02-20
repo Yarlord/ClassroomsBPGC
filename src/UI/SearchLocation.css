@@ -4,6 +4,8 @@
     /* padding-left: 20px;
     padding-right: 20px; */
     border-radius: 2px;
+    border: #ffffff solid 1px;
+
 }
 
 .active{
@@ -11,6 +13,8 @@
     padding: 5px 15px;
     border-radius: 2px;
     margin-bottom: 5px;
+    border: #ffffff solid 1px;
+
 }
 
 .classlist-days{
@@ -20,7 +24,7 @@
 .rect1{
     border: #ffffff solid 1px;
     border-radius: 10px;
-    background-color: #1d1d1d;
+    background-color: #131313;
     text-align: left;
     margin-top: 100px;
 }
@@ -39,5 +43,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #2d0047;
+    background-color: #0b0011;
 }
