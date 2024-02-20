@@ -33,15 +33,6 @@
     background-image: url('./assets/images/purd.png');
   }
 } 
-
-
-@media screen and (min-width:800px){
-  .main{
-    background-image: url('./assets/images/clrstar.jpg');
-  }
-}
-
-
 .cred{
   color: aliceblue;
   font-size: medium;
