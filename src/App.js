@@ -46,7 +46,7 @@ function App() {
                     <div className='icon-container'>
                         <div className='home' onClick={()=>handleOnClick('home')}>
                             {/* <FaHouseUser/> */}
-                            <p className='icon-text'>Home</p>
+                            {/* <p className='icon-text'>Home</p> */}
                         </div>
 
                         {/* <div className='search-class' onClick={()=>handleOnClick('searchLocation')}>

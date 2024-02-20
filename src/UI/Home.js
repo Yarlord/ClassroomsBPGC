@@ -2,11 +2,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Styles from './Classes.css';
 import style from './Home.css'
 import SearchTime from './SearchTime';
-import { List, ListItem, Grid, Container, Stack, Typography, Button, Box } from '@mui/material';
+import { List, ListItem, Grid, Container, Stack, Typography, Button, Box, Dialog, DialogTitle } from '@mui/material';
 import '../UI/fonts.css';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-
+import img from './assets/images/avail_class.jpg';
 
 function Home ({buttonVal}){
   const [init, setInit] = useState(false);
@@ -14,11 +14,8 @@ function Home ({buttonVal}){
   // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      //await loadAll(engine);
-      //await loadFull(engine);
       await loadSlim(engine);
       setParticleEngine(engine);
-      //await loadBasic(engine);
     }).then(() => {
       setInit(true);
     });
@@ -109,25 +106,25 @@ function Home ({buttonVal}){
       }),
       [],
     );
-  
-
+    
     return(
       <div className='main'>
         <h1 className="bpgc-classes">CLASSROOMS</h1>    
         <Particles options={options}/>
-        <Grid sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginBottom:'100px'}}>
-          <Button className="shine" sx={{mt:'200px', backgroundColor:'#282A3A', padding:'20px 20px', display:'flex', flexDirection:'column'}} onClick={handleOnClick}>
-            <Typography sx={{fontSize: '15px', fontFamily: 'Rubik', color:'whitesmoke'}}>Available classrooms &emsp;→ </Typography>
-            <Typography sx={{fontSize:'10px', fontFamily: 'Playfair',  color:'whitesmoke'}}><br/>Check for empty classes available now</Typography>
+        <Grid sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginBottom:'100px',}}>
+          <Button className="shine" sx={{mt:'200px', backgroundColor:'transparent', padding:'100px 40px', display:'flex', flexDirection:'column', borderRadius: '200%',  position: 'relative', overflow: 'hidden'}} onClick={handleOnClick}>
+            <div className="background-overlay"></div>
+            <Typography sx={{fontSize: '20px', fontFamily: 'Rubik', color:'white'}}>Available empty<br/> classrooms  </Typography>
+            {/* <Typography sx={{fontSize:'10px', fontFamily: 'Playfair',  color:'whitesmoke'}}><br/>Check for empty classes available now</Typography> */}
 
           </Button>
-          <Button className="shine" sx={{mt:'200px', backgroundColor:'#282A3A', padding:'20px 20px', display:'flex', flexDirection:'column'}} onClick={handleOnClickLoc}>
+          {/*<Button className="shine" sx={{mt:'200px', backgroundColor:'#282A3A', padding:'20px 20px', display:'flex', flexDirection:'column'}} onClick={handleOnClickLoc}>
             <Typography sx={{fontSize: '15px', fontFamily: 'Rubik',  color:'whitesmoke'}}>Search Classrooms  &emsp;→</Typography>
             <Typography sx={{fontSize:'10px', fontFamily: 'Playfair',  color:'whitesmoke'}}><br/>Search when specific classes are empty</Typography>
 
-          </Button>
+          </Button>*/}
         </Grid>
-        <div className='cred'>made by Vatsal Nadkarni</div>
+        <div className='cred'>Vatsal Nadkarni <br/> <div className='cred-dev'> &emsp;&emsp;Developer</div></div>
 
       </div>  
     )    

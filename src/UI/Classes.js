@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
 import SearchTime from './SearchTime';
-import { List, ListItem, Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
+import { List, ListItem, Accordion, AccordionSummary, AccordionDetails, Typography, Dialog, DialogTitle, Button } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import SearchLocation from './SearchLocation';
 import '../UI/fonts.css';
 
 function Classes(){
@@ -39,12 +40,12 @@ function Classes(){
 
       function findEmptyClasses(dataArray, dtpArray) {
         if (dtpArray.length === 0) {
-          return ["Nothing found!"];
+          return ["Nothing here!"];
         }
         for (let item of dtpArray){
             let index = item.indexOf("-");
             if (index!==-1){
-                return ["Nothing found!"];
+                return ["Nothing here!"];
             }
         }
       
@@ -102,17 +103,7 @@ function Classes(){
             }
         }
         return res;
-    }
-
-    // const [time, setTime] = useState(new Date());
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //       setTime(new Date());
-    //     }, 1000);
-    //     return () => clearInterval(interval);
-    // }, []);
-    
-
+    }   
 
     const [selectedTimeRange, setSelectedTimeRange]=useState([new Date().getHours()-7, new Date().getHours()-6]);
     const timeChange=(startTime, endTime)=>{
@@ -122,9 +113,6 @@ function Classes(){
 
     let res = convertToDTP(day, selectedTimeRange, day_mapping);
     let arr = findEmptyClasses(finalRes, res);
-    if (arr.length==0){
-        arr = ["Nothing found!"];
-    }
     const groupedClasses = arr.reduce((result, item) => {
         const firstLetter = item[0];
         if (!result[firstLetter]) {
@@ -133,12 +121,34 @@ function Classes(){
         result[firstLetter].push(item);
         return result;
     }, {});
+
+    const [searchValue, setSearchValue] = useState('');
+    const [openDialog, setOpenDialog] = useState(false);
+  
+    const handleDialogOpen = (searchValue) => {
+      setSearchValue(searchValue);
+      setOpenDialog(true);
+    };
+    // console.log(searchValue);
+
+  
+    const handleDialogClose = () => {
+      setOpenDialog(false);
+    };
     return(
         <div className='main-container'>
             <div>
                 <SearchTime onTimeChange = {timeChange} className="searchtime"/>
-                
-                 <List sx={{mb:'80px', mt:'10px', maxWidth:'300px'}}>
+                {arr[0]==="Nothing here!"? 
+                    (<div>
+                        <Typography sx={{color:'white', fontSize:'18px', textAlign:'center', mt:'50px', fontFamily:'monospace'}}>
+                            No classes are empty right now :( <br/> Try again later?
+                        </Typography>
+                        <div className='nothing'>  
+                        </div>
+                    </div>)
+                    :
+                    <List sx={{mb:'80px', mt:'10px', maxWidth:'300px'}}>
                         {jsonData ? (
                             Object.entries(groupedClasses).map(([letter, items], index) => (
                                 <Accordion key={index} sx={{backgroundColor: '#512B81', border:'2px solid #512B81', borderRadius:'10px', color:'white', mb: '20px', minWidth: '300px'}}>
@@ -149,14 +159,18 @@ function Classes(){
                                     >
                                         <Typography sx={{fontFamily: 'Playfair', fontSize: '20px'}}>{(letter==='A'||letter==='C'||letter==='D')?letter+ " Side":(letter==='L'?letter + 'ecture Theatres':(letter==='N'?"No classes found!":letter))}</Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', borderRadius:'6px'}}>
-                                        <List sx={{display:'flex', flexDirection:'column', alignItems:'center',}}>
-                                            {items.map((classItem, subIndex) => (
-                                                <ListItem key={subIndex}>
-                                                    <Typography sx={{fontSize: '20px', fontFamily: 'Rubik'}}>{classItem}</Typography>
-                                                </ListItem>
-                                            ))}
-                                        </List>
+                                    <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', borderRadius:'6px'}}>                                        
+                                            <List sx={{display:'flex', flexDirection:'column', alignItems:'center',}}>
+                                                {items.map((classItem, subIndex) => (
+                                                    <ListItem key={subIndex} sx={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
+                                                        <Typography sx={{fontSize: '20px', fontFamily: 'Rubik', display:'flex'}}>{classItem}</Typography>
+                                                        <Button sx={{fontSize:'8px', border:'2px solid violet', borderRadius:'10px', padding:'2px 5px', color:'white', fontFamily:'monospace'}}  onClick={() => handleDialogOpen(classItem)}>
+                                                            view schedule
+                                                        </Button>
+                                                    </ListItem>
+                                                ))}
+                                            </List>
+                                        
                                     </AccordionDetails>
                                 </Accordion>
                             ))
@@ -165,7 +179,12 @@ function Classes(){
                         )}
                     </List>
                 
+                }                
             </div>
+            <Dialog open={openDialog} onClose={handleDialogClose} sx={{backgroundColor:'transparent',}}>
+                <DialogTitle sx={{backgroundColor:'#111111', color:'whitesmoke', fontFamily:'Rubik', textAlign:'center'}}>{searchValue}</DialogTitle>
+                <SearchLocation searchVal={searchValue}/>
+            </Dialog>
         </div>
     )    
 }

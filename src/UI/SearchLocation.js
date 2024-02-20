@@ -3,14 +3,15 @@ import Styles from './Classes.css';
 import styles from './SearchLocation.css';
 import { FaSearch } from "react-icons/fa";
 import './fonts.css';
+import { } from '@mui/material';
 
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
 
-import { Container, Typography, Paper, Grid } from '@mui/material';
+import { Container, Typography, Paper, Grid, List, ListItem, Stack, Button, Box } from '@mui/material';
 
-function SearchLocation(){
+const SearchLocation=({searchVal})=>{
 
     const [jsonData, setJsonData] = useState(null);
     useEffect(()=>{
@@ -41,7 +42,7 @@ function SearchLocation(){
         ['4', 'B', 'Th'],
         ['5', 'F', 'F'],
         ['6', 'S', 'S'],
-        ['7', 'S', 'Su']
+        ['7', 'D', 'Su']
       ];
 
     function findDaysGivenClass(inputArray, searchString){
@@ -60,13 +61,17 @@ function SearchLocation(){
             return ["No result found!"];
         }
     }
-    const [searchTerm, setSearchTerm] = useState('');
-    const handleInput = (event)=>{
-        setSearchTerm(event.target.value.toUpperCase());
-    }
+
+    // for the search term for the input bar... 
+    const [searchTerm, setSearchTerm] = useState('C302');
+    useEffect(() => {
+        // Update searchTerm when searchValue changes
+        setSearchTerm(searchVal);
+      }, [searchVal]);
+      console.log(searchVal);
+
 
     let arr = findDaysGivenClass(finalRes, searchTerm);
-    // console.log(day_mapping.find((element, shortDay, longDay)=>element==day.toString()));
     const [sortByDay, setSortByDay] = useState(null);
 
     const handleHeaderClick = (day) => {
@@ -76,20 +81,11 @@ function SearchLocation(){
         setSortByDay(day);
         }
     };
-
     const isSortedByDay = (day) => sortByDay === day;
 
     return(
-        <div style={{marginBottom:'100px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
-            <input 
-            type = "text"
-            placeholder="Search classrooms"
-            value={searchTerm}
-            onChange={handleInput}
-            className='search-bar'>
-            </input>
+        <div style={{marginBottom:'0px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
             <div className="clas">
-
                 <div className="classlist-days">
                     <table>
                         <thead>

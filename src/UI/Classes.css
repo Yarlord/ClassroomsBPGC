@@ -39,3 +39,12 @@
 .searchtime{
     position : fixed;
 }
+
+.nothing{
+    background-image:url('./assets/images/bg.jpg');
+    margin-top: 50px;
+    padding-bottom: 300px;
+    background-size: cover;
+    opacity: 0.6;
+    border-radius: 100px;
+}

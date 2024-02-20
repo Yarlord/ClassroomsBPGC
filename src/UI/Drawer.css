@@ -25,7 +25,9 @@
 }
 
 .icon-text{
-    font-size: 10px;
+    font-size: 15px;
+    background-color:brown;
+    padding: 5px;
     margin-top: 0px;
     font-family:'Times New Roman', Times, serif;
 }
