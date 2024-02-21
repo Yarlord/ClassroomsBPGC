@@ -129,7 +129,7 @@ function Classes(){
       setSearchValue(searchValue);
       setOpenDialog(true);
     };
-    // console.log(searchValue);
+    console.log(arr.length);
 
   
     const handleDialogClose = () => {
@@ -139,7 +139,7 @@ function Classes(){
         <div className='main-container'>
             <div>
                 <SearchTime onTimeChange = {timeChange} className="searchtime"/>
-                {arr[0]===("Nothing here!" || arr.size()===0)? 
+                {(arr[0]==="Nothing here!" || arr.length===0)? 
                     (<div>
                         <Typography sx={{color:'white', fontSize:'14px', textAlign:'center', mt:'50px', fontFamily:'monospace'}}>
                             No classes are empty right now :( <br/> Try again later?
