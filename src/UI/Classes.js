@@ -139,9 +139,9 @@ function Classes(){
         <div className='main-container'>
             <div>
                 <SearchTime onTimeChange = {timeChange} className="searchtime"/>
-                {arr[0]==="Nothing here!"? 
+                {arr[0]===("Nothing here!" || arr.size()===0)? 
                     (<div>
-                        <Typography sx={{color:'white', fontSize:'18px', textAlign:'center', mt:'50px', fontFamily:'monospace'}}>
+                        <Typography sx={{color:'white', fontSize:'14px', textAlign:'center', mt:'50px', fontFamily:'monospace'}}>
                             No classes are empty right now :( <br/> Try again later?
                         </Typography>
                         <div className='nothing'>  
