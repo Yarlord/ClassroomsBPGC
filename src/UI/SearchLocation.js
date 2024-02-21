@@ -68,7 +68,7 @@ const SearchLocation=({searchVal})=>{
         // Update searchTerm when searchValue changes
         setSearchTerm(searchVal);
       }, [searchVal]);
-      console.log(searchVal);
+    //   console.log(searchVal);
 
 
     let arr = findDaysGivenClass(finalRes, searchTerm);

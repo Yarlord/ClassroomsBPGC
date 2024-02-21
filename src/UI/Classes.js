@@ -129,7 +129,7 @@ function Classes(){
       setSearchValue(searchValue);
       setOpenDialog(true);
     };
-    console.log(arr.length);
+    // console.log(arr.length);
 
   
     const handleDialogClose = () => {
