@@ -1,7 +1,7 @@
 {
   "short_name": "Classrooms",
   "name": "BPGC Classrooms",
-  "description":  "Find empty classrooms in the campus building. Find refuge in AC =D.",
+  "description":  "Find empty classrooms on campus.",
   "icons": [
     {
       "src": "bpgcc.ico",
