@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Using this app
+Click on available empty classrooms.
+
+Select time (first one is from, second is till).
+
+Click on each dropdown for finding empty classrooms on each side.
+
+## Credits :
+Shyam Poduval (data processing) [GitHub](https://github.com/Wurmple)
+Aryan Pingle (sw.js)[GitHub](https://github.com/aryanpingle)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
