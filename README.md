@@ -1,6 +1,8 @@
 # Using this app
-Click on available empty classrooms
-Select time (first one is from, second is till)
+Click on available empty classrooms.
+
+Select time (first one is from, second is till).
+
 Click on each dropdown for finding empty classrooms on each side.
 
 ## Credits :
