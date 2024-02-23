@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Styles from './Classes.css';
 import SearchTime from './SearchTime';
-import { List, ListItem, Accordion, AccordionSummary, AccordionDetails, Typography, Dialog, DialogTitle, Button } from '@mui/material';
+import { List, ListItem, Accordion, AccordionSummary, AccordionDetails, Typography, Dialog, DialogTitle, Button, Paper } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SearchLocation from './SearchLocation';
 import '../UI/fonts.css';
@@ -151,15 +151,15 @@ function Classes(){
                     <List sx={{mb:'80px', mt:'10px', maxWidth:'300px'}}>
                         {jsonData ? (
                             Object.entries(groupedClasses).map(([letter, items], index) => (
-                                <Accordion key={index} sx={{backgroundColor: '#512B81', border:'2px solid #512B81', borderRadius:'10px', color:'white', mb: '20px', minWidth: '300px'}}>
+                                <Accordion key={index} sx={{backgroundColor: '#512B81', border:'1px solid hsla(0,0%,100%,.1)', borderRadius:'10px', color:'white', mb: '20px', minWidth: '300px'}}>
                                     <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon sx={{color:'white', border:'#BED754 2px solid', borderRadius:'20px'}}/>}
+                                        expandIcon={<ExpandMoreIcon sx={{color:'#BED754', border:'#BED754 2px solid', borderRadius:'20px'}}/>}
                                         aria-controls={`panel${index}a-content`}
                                         id={`panel${index}a-header`}
                                     >
-                                        <Typography sx={{fontFamily: 'Playfair', fontSize: '20px'}}>{(letter==='A'||letter==='C'||letter==='D')?letter+ " Side":(letter==='L'?letter + 'ecture Theatres':(letter==='N'?"No classes found!":letter))}</Typography>
+                                        <Typography sx={{fontFamily: 'Playfair', fontSize: '20px', fontWeight:'500'}}>{(letter==='A'||letter==='C'||letter==='D')?letter+ " Side":(letter==='L'?letter + 'ecture Theatres':(letter==='N'?"No classes found!":letter))}</Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', borderRadius:'6px'}}>                                        
+                                    <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', borderRadius:'10px'}}>                                        
                                             <List sx={{display:'flex', flexDirection:'column', alignItems:'center',}}>
                                                 {items.map((classItem, subIndex) => (
                                                     <ListItem key={subIndex} sx={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
@@ -182,8 +182,38 @@ function Classes(){
                 }                
             </div>
             <Dialog open={openDialog} onClose={handleDialogClose} sx={{backgroundColor:'transparent',}}>
-                <DialogTitle sx={{backgroundColor:'#111111', color:'whitesmoke', fontFamily:'Rubik', textAlign:'center'}}>{searchValue}</DialogTitle>
+                <Paper sx={{ border: '1px solid rgba(255, 255, 255)', borderRadius: '0px', overflowY: 'scroll', borderRadius:'5px',}}>
+                <div >
+                    <DialogTitle
+                        sx={{
+                        backgroundColor: '#111111',
+                        color: 'whitesmoke',
+                        fontFamily: 'Rubik',
+                        textAlign: 'center',
+                        display: 'flex',
+                        justifyContent: 'space-between', 
+                        alignItems: 'center',
+                        paddingRight: '5px',
+                        paddingBottom: '5px',
+                        border: '0px',
+                        }}
+                    >
+                        {searchValue}
+                        <div
+                        style={{
+                            alignSelf: 'flex-end',
+                            cursor: 'pointer' , 
+                            paddingRight:'5px',
+                        }}
+                        onClick={handleDialogClose}
+                        >
+                        &#x2716;
+                        </div>
+                    </DialogTitle>
+                </div>
+                
                 <SearchLocation searchVal={searchValue}/>
+                </Paper>
             </Dialog>
         </div>
     )    

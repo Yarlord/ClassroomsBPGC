@@ -23,16 +23,16 @@
   align-items:center;
   /* text-align: center; */
   flex-flow: column wrap;
-  background-color: hsl(0, 0%, 6%);
+  background-color: hsl(0, 0%, 1%);
   min-height: 100vh;
   background-size:cover;
 }
 
-@media screen and (min-width:300px) and (max-width:800px){
-  .main{
-    background-image: url('./assets/images/purd.png');
-  }
-} 
+/* @media screen and (min-width:300px) and (max-width:800px){ */
+  /* .main{ */
+    /* background-image: url('./assets/images/purd.png'); */
+  /* } */
+/* }  */
 .cred{
   color: aliceblue;
   font-size: medium;
