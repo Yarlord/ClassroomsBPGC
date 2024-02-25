@@ -111,7 +111,7 @@ function Classes(){
     }
     console.log(selectedTimeRange);
 
-    let res = convertToDTP(1, selectedTimeRange, day_mapping);
+    let res = convertToDTP(day, selectedTimeRange, day_mapping);
     let arr = findEmptyClasses(finalRes, res);
     const groupedClasses = arr.reduce((result, item) => {
         const firstLetter = item[0];
@@ -198,6 +198,7 @@ function Classes(){
                 
                 }                
             </div>
+            <a href='https://forms.gle/itz52RfwdqxiQjtc6' class="bugs">Bug? Feature?</a>
             <Dialog open={openDialog} onClose={handleDialogClose} sx={{backgroundColor:'transparent',}}>
                 <Paper sx={{ border: '1px solid rgba(255, 255, 255)', borderRadius: '0px', overflowY: 'scroll', borderRadius:'5px',}}>
                 <div >
