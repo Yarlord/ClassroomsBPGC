@@ -126,11 +126,15 @@ function Classes(){
     const [openDialog, setOpenDialog] = useState(false);
   
     const handleDialogOpen = (searchValue) => {
+
+      if ("vibrator" in navigator) navigator.vibrate(69);
       setSearchValue(searchValue);
       setOpenDialog(true);
     };
     // console.log(arr.length);
-
+    const handleExpandIcon = ()=>{
+        if ("vibrator" in navigator) navigator.vibrate(69);
+    }
   
     const handleDialogClose = () => {
       setOpenDialog(false);
@@ -173,6 +177,7 @@ function Classes(){
                                         expandIcon={<ExpandMoreIcon sx={{color: getExpandIconColor(index), border:'#BED754 2px solid', borderRadius:'20px', borderColor:getExpandIconColor(index) }}/>}
                                         aria-controls={`panel${index}a-content`}
                                         id={`panel${index}a-header`}
+                                        onClick={handleExpandIcon}
                                     >
                                         <Typography sx={{fontFamily: 'Playfair', fontSize: '20px', fontWeight:'600'}}>{(letter==='A'||letter==='C'||letter==='D')?letter+ " Side":(letter==='L'?letter + 'ecture Theatres':(letter==='N'?"No classes found!":letter))}</Typography>
                                     </AccordionSummary>
