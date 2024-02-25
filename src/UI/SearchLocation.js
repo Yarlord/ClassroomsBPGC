@@ -80,6 +80,7 @@ const SearchLocation=({searchVal})=>{
         } else {
         setSortByDay(day);
         }
+        navigator.vibrate(200);
     };
     const isSortedByDay = (day) => sortByDay === day;
 
