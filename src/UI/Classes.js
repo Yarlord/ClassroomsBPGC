@@ -105,13 +105,13 @@ function Classes(){
         return res;
     }   
 
-    const [selectedTimeRange, setSelectedTimeRange]=useState([new Date().getHours()-7, new Date().getHours()-6]);
+    const [selectedTimeRange, setSelectedTimeRange]=useState([new Date().getHours()-7, new Date().getHours()-7]);
     const timeChange=(startTime, endTime)=>{
         setSelectedTimeRange([startTime-7, endTime-7]);        
     }
-    // console.log(selectedTimeRange);
+    console.log(selectedTimeRange);
 
-    let res = convertToDTP(day, selectedTimeRange, day_mapping);
+    let res = convertToDTP(1, selectedTimeRange, day_mapping);
     let arr = findEmptyClasses(finalRes, res);
     const groupedClasses = arr.reduce((result, item) => {
         const firstLetter = item[0];
@@ -135,6 +135,23 @@ function Classes(){
     const handleDialogClose = () => {
       setOpenDialog(false);
     };
+    const getExpandIconColor = (index) => {
+        if (index === 0) {
+            return '#FAEF5D'; 
+        } 
+        if (index === 1) {
+            return '#50C4ED'; 
+        }if (index === 2) {
+            return '#FF004D'; 
+        }if (index === 3) {
+            return '#FAEF5D'; 
+        }if (index === 4) {
+            return '#50C4ED'; 
+        }
+        if (index === 5) {
+            return '#FF004D'; 
+        }
+    };
     return(
         <div className='main-container'>
             <div>
@@ -151,20 +168,20 @@ function Classes(){
                     <List sx={{mb:'80px', mt:'10px', maxWidth:'300px'}}>
                         {jsonData ? (
                             Object.entries(groupedClasses).map(([letter, items], index) => (
-                                <Accordion key={index} sx={{backgroundColor: '#512B81', border:'1px solid hsla(0,0%,100%,.1)', borderRadius:'10px', color:'white', mb: '20px', minWidth: '300px'}}>
+                                <Accordion key={index} sx={{backgroundColor: '#000000', border:'1px solid hsla(0,0%,100%,.3)', borderRadius:'10px', color:'white', mb: '20px', minWidth: '300px'}}>
                                     <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon sx={{color:'#BED754', border:'#BED754 2px solid', borderRadius:'20px'}}/>}
+                                        expandIcon={<ExpandMoreIcon sx={{color: getExpandIconColor(index), border:'#BED754 2px solid', borderRadius:'20px', borderColor:getExpandIconColor(index) }}/>}
                                         aria-controls={`panel${index}a-content`}
                                         id={`panel${index}a-header`}
                                     >
-                                        <Typography sx={{fontFamily: 'Playfair', fontSize: '20px', fontWeight:'500'}}>{(letter==='A'||letter==='C'||letter==='D')?letter+ " Side":(letter==='L'?letter + 'ecture Theatres':(letter==='N'?"No classes found!":letter))}</Typography>
+                                        <Typography sx={{fontFamily: 'Playfair', fontSize: '20px', fontWeight:'600'}}>{(letter==='A'||letter==='C'||letter==='D')?letter+ " Side":(letter==='L'?letter + 'ecture Theatres':(letter==='N'?"No classes found!":letter))}</Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails sx={{backgroundColor:'#35155D', color:'white', borderRadius:'10px'}}>                                        
+                                    <AccordionDetails sx={{backgroundColor:'#000000', color:'white', borderRadius:'8px', border:'1px solid hsla(0,0%,100%,.1)'}}>                                        
                                             <List sx={{display:'flex', flexDirection:'column', alignItems:'center',}}>
                                                 {items.map((classItem, subIndex) => (
                                                     <ListItem key={subIndex} sx={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
                                                         <Typography sx={{fontSize: '20px', fontFamily: 'Rubik', display:'flex'}}>{classItem}</Typography>
-                                                        <Button sx={{fontSize:'8px', border:'2px solid violet', borderRadius:'10px', padding:'2px 5px', color:'white', fontFamily:'monospace'}}  onClick={() => handleDialogOpen(classItem)}>
+                                                        <Button sx={{fontSize:'8px', border:'2px solid violet', borderRadius:'10px', padding:'2px 5px', color:'white', fontFamily:'monospace', borderColor: getExpandIconColor(index)}}  onClick={() => handleDialogOpen(classItem)}>
                                                             view schedule
                                                         </Button>
                                                     </ListItem>
@@ -186,7 +203,7 @@ function Classes(){
                 <div >
                     <DialogTitle
                         sx={{
-                        backgroundColor: '#111111',
+                        backgroundColor: '#080808',
                         color: 'whitesmoke',
                         fontFamily: 'Rubik',
                         textAlign: 'center',

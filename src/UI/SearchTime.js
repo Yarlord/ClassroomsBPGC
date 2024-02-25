@@ -10,13 +10,13 @@ function SearchTime({onTimeChange}){
     const [todayStartOfTheDay, setTodayStartOfTheDay] = useState(dayjs().startOf('minute'));
 
     const [selectedTimeStart, setSelectedTimeStart] = useState(dayjs());
-    const [selectedTimeEnd, setSelectedTimeEnd] = useState(dayjs().add(1, 'hour'));
+    const [selectedTimeEnd, setSelectedTimeEnd] = useState(dayjs().startOf('hour').add(59, 'minute'));
 
     const handleTimeChangeStart = (time) => {
         setSelectedTimeStart(time);
-        // setSelectedTimeEnd(time.add(1,"hour"));
+        setSelectedTimeEnd(time.startOf('hour').add(59, 'minute'));
         // console.log(time["$H"]);
-        onTimeChange(time["$H"], selectedTimeEnd["$H"]);
+        onTimeChange(time["$H"], time["$H"]+1);
     };
 
     const handleTimeChangeEnd = (time) => {
@@ -24,6 +24,8 @@ function SearchTime({onTimeChange}){
         // console.log(time["$H"]);
         onTimeChange(selectedTimeStart["$H"], time["$H"]);
     };
+    console.log("start ",selectedTimeStart);
+    console.log("end ", selectedTimeEnd);
         
     return(
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -39,7 +41,7 @@ function SearchTime({onTimeChange}){
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <TimePicker value={todayStartOfTheDay} 
                     sx={{
-                        backgroundColor:'#940B92',
+                        backgroundColor:'#101010',
                         borderRadius:'5px', 
                         m: '7px',
                         '& .MuiInputBase-root': {
@@ -55,8 +57,8 @@ function SearchTime({onTimeChange}){
                         textAlign: 'center',
                     }} 
                         onChange={handleTimeChangeStart}/>
-                    <TimePicker value={dayjs().startOf('hour').add(59, 'minute')} 
-                    sx={{backgroundColor:'#940B92', borderRadius:'5px', m: '7px',
+                    <TimePicker value={selectedTimeStart.startOf('hour').add(59, 'minute')} 
+                    sx={{backgroundColor:'#101010', borderRadius:'5px', m: '7px',
                         '& .MuiInputBase-root': {
                             width: '130px',
                             height:'40px',
