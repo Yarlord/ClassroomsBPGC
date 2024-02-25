@@ -75,12 +75,12 @@ const SearchLocation=({searchVal})=>{
     const [sortByDay, setSortByDay] = useState(null);
 
     const handleHeaderClick = (day) => {
+        if("vibrate" in navigator) navigator.vibrate(50);
         if (sortByDay === day) {
         setSortByDay(null);
         } else {
         setSortByDay(day);
         }
-        navigator.vibrate(200);
     };
     const isSortedByDay = (day) => sortByDay === day;
 

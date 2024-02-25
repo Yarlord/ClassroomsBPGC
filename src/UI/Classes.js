@@ -127,7 +127,6 @@ function Classes(){
   
     const handleDialogOpen = (searchValue) => {
       setSearchValue(searchValue);
-      navigator.vibrate(200);
       setOpenDialog(true);
     };
     // console.log(arr.length);
@@ -135,7 +134,6 @@ function Classes(){
   
     const handleDialogClose = () => {
       setOpenDialog(false);
-      navigator.vibrate(200);
     };
     const getExpandIconColor = (index) => {
         if (index === 0) {
