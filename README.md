@@ -7,7 +7,11 @@ Click on each dropdown for finding empty classrooms on each side.
 
 ## Credits :
 Shyam Poduval (data processing) [GitHub](https://github.com/Wurmple)
-Aryan Pingle (sw.js)[GitHub](https://github.com/aryanpingle)
+
+
+Aryan Pingle (sw.js, gen)[GitHub](https://github.com/aryanpingle)
+
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
