@@ -84,7 +84,7 @@ const SearchLocation=({searchVal})=>{
     const isSortedByDay = (day) => sortByDay === day;
 
     return(
-        <div style={{marginBottom:'0px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
+        <div style={{marginBottom:'0px', display: 'flex', flexDirection: 'column', alignItems: 'center',maxWidth:'80vw'}}> 
             <div className="clas">
                 <div className="classlist-days">
                     <table>
@@ -116,12 +116,12 @@ const SearchLocation=({searchVal})=>{
                                             return timeA - timeB;
                                         })
                                         .map((item, index) => (
-                                            <p key={index} className="rect">{Number(item.split(' ')[1])+7+":00"}
+                                            <div key={index} className="rect">{Number(item.split(' ')[1])+7+":00"}
                                             <br/>
-                                            <Typography sx={{display:'flex', justifyContent:'center', fontFamily:'DM', fontSize:'18px'}}>
+                                            <Typography sx={{display:'flex', justifyContent:'center', fontFamily:'DM', fontSize:'18px', color:'#cccccc'}}>
                                                  {searchTerm} available 
                                             </Typography>
-                                            {Number(item.split(' ')[1])+8+":00"}</p>
+                                            {Number(item.split(' ')[1])+8+":00"}</div>
                                         ))
                                     }
                                 </td>

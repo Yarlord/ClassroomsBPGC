@@ -42,7 +42,8 @@ function SearchTime({onTimeChange}){
                     <TimePicker value={todayStartOfTheDay} 
                     sx={{
                         backgroundColor:'#101010',
-                        borderRadius:'5px', 
+                        borderRadius:'5px',
+                        border: '1px solid hsla(0,0%,100%,.5)', 
                         m: '7px',
                         '& .MuiInputBase-root': {
                             width: '130px', 
@@ -59,6 +60,7 @@ function SearchTime({onTimeChange}){
                         onChange={handleTimeChangeStart}/>
                     <TimePicker value={selectedTimeStart.startOf('hour').add(59, 'minute')} 
                     sx={{backgroundColor:'#101010', borderRadius:'5px', m: '7px',
+                    border:'1px solid hsla(0,0%,100%,.5)',
                         '& .MuiInputBase-root': {
                             width: '130px',
                             height:'40px',

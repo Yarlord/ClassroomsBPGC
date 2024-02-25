@@ -200,7 +200,7 @@ function Classes(){
             </div>
             <a href='https://forms.gle/itz52RfwdqxiQjtc6' class="bugs">Bug? Feature?</a>
             <Dialog open={openDialog} onClose={handleDialogClose} sx={{backgroundColor:'transparent',}}>
-                <Paper sx={{ border: '1px solid rgba(255, 255, 255)', borderRadius: '0px', overflowY: 'scroll', borderRadius:'5px',}}>
+                <Paper sx={{ border: '1px solid rgba(255, 255, 255)', borderRadius: '0px', overflowY: 'visible', borderRadius:'5px',minWidth:'80vw', overflowX:'visible'}}>
                 <div >
                     <DialogTitle
                         sx={{
@@ -214,6 +214,7 @@ function Classes(){
                         paddingRight: '5px',
                         paddingBottom: '5px',
                         border: '0px',
+                        minWidth:'70vw',
                         }}
                     >
                         {searchValue}
@@ -221,7 +222,7 @@ function Classes(){
                         style={{
                             alignSelf: 'flex-end',
                             cursor: 'pointer' , 
-                            paddingRight:'5px',
+                            paddingRight:'15px',
                         }}
                         onClick={handleDialogClose}
                         >
