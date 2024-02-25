@@ -200,7 +200,18 @@ function Classes(){
             </div>
             <a href='https://forms.gle/itz52RfwdqxiQjtc6' class="bugs">Bug? Feature?</a>
             <Dialog open={openDialog} onClose={handleDialogClose} sx={{backgroundColor:'transparent',}}>
-                <Paper sx={{ border: '1px solid rgba(255, 255, 255)', borderRadius: '0px', overflowY: 'visible', borderRadius:'5px',minWidth:'80vw', overflowX:'visible'}}>
+                <Paper sx={{ border: '1px solid rgba(255, 255, 255)', 
+                borderRadius: '0px', 
+                overflowY: 'visible', 
+                borderRadius:'5px',
+                minWidth:'80vw',
+                '@media screen and (min-width: 600px)': {
+                    minWidth: '60vw',
+                  },
+                  '@media screen and (min-width: 800px)': {
+                    minWidth: '40vw', 
+                  },
+                 overflowX:'visible'}}>
                 <div >
                     <DialogTitle
                         sx={{
@@ -214,7 +225,15 @@ function Classes(){
                         paddingRight: '5px',
                         paddingBottom: '5px',
                         border: '0px',
-                        minWidth:'70vw',
+                        '@media screen and (min-width: 300px) and (max-width: 600px)': {
+                            minWidth: '70vw',
+                          },
+                        '@media screen and (min-width: 600px) and (max-width: 800px)': {
+                            minWidth: '60vw',
+                          },
+                          '@media screen and (min-width: 800px)': {
+                            minWidth: '20vw', 
+                          },
                         }}
                     >
                         {searchValue}
