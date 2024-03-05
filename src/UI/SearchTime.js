@@ -52,6 +52,7 @@ function SearchTime({onTimeChange}){
                         },
                         '& .MuiInputBase-input': {
                         fontSize: '14px', 
+                        textAlign: 'center',
                         },
                         
                         alignSelf: 'center',
@@ -68,7 +69,9 @@ function SearchTime({onTimeChange}){
                         },
                         '& .MuiInputBase-input': {
                             fontSize: '14px', 
-                        },alignSelf: 'center',
+                            textAlign: 'center',
+                        },
+                        alignSelf: 'center',
                         }} 
                     onChange={handleTimeChangeEnd}/>
                 </div>
