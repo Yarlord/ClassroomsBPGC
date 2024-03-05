@@ -186,7 +186,7 @@ function Classes(){
                                                 {items.map((classItem, subIndex) => (
                                                     <ListItem key={subIndex} sx={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
                                                         <Typography sx={{fontSize: '20px', fontFamily: 'Rubik', display:'flex'}}>{classItem}</Typography>
-                                                        <Button sx={{fontSize:'8px', border:'2px solid violet', borderRadius:'10px', padding:'2px 5px', color:'white', fontFamily:'monospace', borderColor: getExpandIconColor(index)}}  onClick={() => handleDialogOpen(classItem)}>
+                                                        <Button sx={{fontSize:'10px', border:'2px solid violet', borderRadius:'10px', padding:'2px 5px', color:'white', fontFamily:'monospace', borderColor: getExpandIconColor(index)}}  onClick={() => handleDialogOpen(classItem)}>
                                                             view schedule
                                                         </Button>
                                                     </ListItem>

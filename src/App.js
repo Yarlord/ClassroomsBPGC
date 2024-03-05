@@ -45,20 +45,7 @@ function App() {
                 <div className="drawer-details">
                     <div className='icon-container'>
                         <div className='home' onClick={()=>handleOnClick('home')}>
-                            {/* <FaHouseUser/> */}
-                            {/* <p className='icon-text'>Home</p> */}
-                        </div>
-
-                        {/* <div className='search-class' onClick={()=>handleOnClick('searchLocation')}>
-                            <FaSearchLocation/>
-                            <p className='icon-text'>Classes</p>
-                        </div>
-
-                        <div className='search-class' onClick={()=>handleOnClick('searchDate')}>
-                            <FaCalendar/>
-                            <p className='icon-text'>Today</p>
-                        </div> */}
-                        
+                        </div>                        
                     </div>
                 </div>          
             </div>
