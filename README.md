@@ -6,10 +6,10 @@ Select time (first one is from, second is till).
 Click on each dropdown for finding empty classrooms on each side.
 
 ## Credits :
-Shyam Poduval (data processing) [GitHub](https://github.com/Wurmple)
+Shyam Poduval (helped data processing) [GitHub](https://github.com/Wurmple)
 
 
-Aryan Pingle (sw.js, gen)[GitHub](https://github.com/aryanpingle)
+Aryan Pingle (helped with sw.js, gen)[GitHub](https://github.com/aryanpingle)
 
 
 
