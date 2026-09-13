@@ -5,14 +5,6 @@ Select time (first one is from, second is till).
 
 Click on each dropdown for finding empty classrooms on each side.
 
-## Credits :
-Shyam Poduval (helped data processing) [GitHub](https://github.com/Wurmple)
-
-
-Aryan Pingle (helped with sw.js, gen)[GitHub](https://github.com/aryanpingle)
-
-
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -82,3 +74,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Credits :
+Shyam Poduval (helped data processing) [GitHub](https://github.com/Wurmple)
+Aryan Pingle (helped with sw.js, gen)[GitHub](https://github.com/aryanpingle)
+
+
+
